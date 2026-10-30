@@ -1,0 +1,56 @@
+{
+  "$schema": "https://example.com/schemas/design-tokens.schema.json",
+  "meta": {
+    "name": "NextGen Scholars Brand Palette",
+    "version": "1.0.0",
+    "status": "mock",
+    "notes": "Mock token source-of-truth. Replace schema and pipeline integration later."
+  },
+  "primitives": {
+    "premiumBlack": "#111214",
+    "graphite": "#34363A",
+    "metallicSilver": "#C7C9CC",
+    "lightSilver": "#F3F4F5",
+    "pureWhite": "#FFFFFF",
+    "royalGold": "#C5A253"
+  },
+  "gradients": {
+    "gold": "linear-gradient(100deg, #8D6A2C 0%, #E6CA83 50%, #B18A43 100%)"
+  },
+  "semantic": {
+    "background": {
+      "default": "{primitives.pureWhite}",
+      "surface": "{primitives.lightSilver}",
+      "inverse": "{primitives.premiumBlack}"
+    },
+    "text": {
+      "primary": "{primitives.premiumBlack}",
+      "secondary": "{primitives.graphite}",
+      "inverse": "{primitives.pureWhite}"
+    },
+    "border": {
+      "default": "{primitives.metallicSilver}",
+      "strong": "{primitives.graphite}"
+    },
+    "accent": {
+      "primary": "{primitives.royalGold}",
+      "premium": "{gradients.gold}"
+    }
+  },
+  "usageDistribution": {
+    "pureWhite": "50%",
+    "premiumBlack": "25%",
+    "lightSilver": "12%",
+    "metallicSilver": "8%",
+    "royalGold": "5%"
+  },
+  "restrictions": {
+    "exclusivePalette": true,
+    "disallowedFamilies": ["blue", "purple", "green", "red", "unrelated colours"],
+    "notes": [
+      "Use gold sparingly for key accents.",
+      "Use metallic silver gradients/effects only for premium visual elements.",
+      "Maintain accessibility, contrast and readability in all UI states."
+    ]
+  }
+}
