@@ -31,7 +31,7 @@ export const MentorsSection: React.FC = () => {
           {MOCK_MENTORS.map((m) => (
             <div
               key={m.id}
-              className="group bg-[#1E2124] rounded-2xl border border-white/8 p-6 transition-all duration-300 hover:border-[#C5A253]/40 hover:-translate-y-1.5 flex flex-col justify-between"
+              className="group bg-[#1E2124] rounded-3xl border border-white/8 p-8 transition-all duration-300 hover:border-[#C5A253]/40 hover:-translate-y-1.5 flex flex-col justify-between"
             >
               <div>
                 <div className="relative h-52 w-full rounded-xl overflow-hidden mb-5 bg-[#141517]">

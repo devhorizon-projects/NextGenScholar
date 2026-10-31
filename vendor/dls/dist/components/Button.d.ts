@@ -15,7 +15,7 @@ export interface DevHorizonButtonProps extends React.ButtonHTMLAttributes<HTMLBu
 }
 export type DlsButtonProps = DevHorizonButtonProps;
 export type DevHorizonTechButtonProps = DevHorizonButtonProps;
-export declare const DevHorizonButton: any;
-export declare const DevHorizonTechButton: any;
-export declare const DlsButton: any;
+export declare const DevHorizonButton: React.ForwardRefExoticComponent<DevHorizonButtonProps & React.RefAttributes<HTMLButtonElement>>;
+export declare const DevHorizonTechButton: React.ForwardRefExoticComponent<DevHorizonButtonProps & React.RefAttributes<HTMLButtonElement>>;
+export declare const DlsButton: React.ForwardRefExoticComponent<DevHorizonButtonProps & React.RefAttributes<HTMLButtonElement>>;
 export default DevHorizonButton;
