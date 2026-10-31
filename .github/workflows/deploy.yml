@@ -28,11 +28,8 @@ jobs:
         with:
           path: NextGenScholar
 
-      - name: Checkout DLS design system library
-        uses: actions/checkout@v4
-        with:
-          repository: devhorizon-projects/DLS
-          path: DLS
+      - name: Clone DLS design system library
+        run: git clone --depth 1 https://github.com/devhorizon-projects/DLS.git DLS
 
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
