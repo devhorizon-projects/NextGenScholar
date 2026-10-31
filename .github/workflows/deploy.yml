@@ -1,0 +1,79 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Permissions required for GitHub Pages and writing to gh-pages branch
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout NextGenScholar repository
+        uses: actions/checkout@v4
+        with:
+          path: NextGenScholar
+
+      - name: Checkout DLS design system library
+        uses: actions/checkout@v4
+        with:
+          repository: devhorizon-projects/DLS
+          path: DLS
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: |
+            DLS/package-lock.json
+            NextGenScholar/package-lock.json
+
+      - name: Install dependencies & Build DLS
+        run: |
+          cd DLS
+          npm ci
+          npm run build
+
+      - name: Install dependencies & Build NextGenScholar
+        run: |
+          cd NextGenScholar
+          npm ci
+          npm run build
+          cp dist/index.html dist/404.html
+
+      # 1. Official GitHub Pages Deployment (For GitHub Actions deployment source)
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: NextGenScholar/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      # 2. Deploy to gh-pages branch (For branch-based GitHub Pages deployment source)
+      - name: Deploy to gh-pages branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: NextGenScholar/dist
+          branch: gh-pages
+          commit-message: "deploy: automated build from commit ${{ github.sha }}"
