@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
@@ -55,8 +57,7 @@ jobs:
 
       # 2. Deploy to gh-pages branch (Branch Source)
       - name: Deploy to gh-pages branch
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          folder: dist
-          branch: gh-pages
-          commit-message: "deploy: automated build from commit ${{ github.sha }}"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

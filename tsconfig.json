@@ -17,7 +17,9 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@devhorizon/dls": ["./vendor/dls/dist/index.d.ts"],
+      "@devhorizon/dls/*": ["./vendor/dls/dist/*"]
     }
   },
   "include": ["src"],

@@ -9,6 +9,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      "@devhorizon/dls/style.css": path.resolve(__dirname, "./vendor/dls/dist/style.css"),
+      "@devhorizon/dls": path.resolve(__dirname, "./vendor/dls/dist/index.js"),
       react: path.resolve(__dirname, "./node_modules/react"),
       "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
       "react/jsx-runtime": path.resolve(__dirname, "./node_modules/react/jsx-runtime"),
