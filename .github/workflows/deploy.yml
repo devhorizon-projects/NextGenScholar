@@ -6,7 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-# Permissions required for GitHub Pages and writing to gh-pages branch
 permissions:
   contents: write
   pages: write
@@ -23,55 +22,41 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout NextGenScholar repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          path: NextGenScholar
-          persist-credentials: false
-
-      - name: Clone DLS design system library
-        run: git -c http.extraheader="" clone --depth 1 https://github.com/devhorizon-projects/DLS.git DLS
 
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: |
-            DLS/package-lock.json
-            NextGenScholar/package-lock.json
 
-      - name: Install dependencies & Build DLS
-        run: |
-          cd DLS
-          npm ci
-          npm run build
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Install dependencies & Build NextGenScholar
+      - name: Build website
         run: |
-          cd NextGenScholar
-          npm ci
           npm run build
           cp dist/index.html dist/404.html
 
-      # 1. Official GitHub Pages Deployment (For GitHub Actions deployment source)
+      # 1. Official GitHub Pages Deployment (Actions Source)
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: NextGenScholar/dist
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         continue-on-error: true
 
-      # 2. Deploy to gh-pages branch (For branch-based GitHub Pages deployment source)
+      # 2. Deploy to gh-pages branch (Branch Source)
       - name: Deploy to gh-pages branch
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: NextGenScholar/dist
+          folder: dist
           branch: gh-pages
           commit-message: "deploy: automated build from commit ${{ github.sha }}"

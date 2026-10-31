@@ -10,7 +10,7 @@
     "deploy": "npm run build && cp dist/index.html dist/404.html && gh-pages -d dist"
   },
   "dependencies": {
-    "@devhorizon/dls": "file:../DLS",
+    "@devhorizon/dls": "file:./vendor/dls",
     "canvas-confetti": "^1.9.3",
     "clsx": "^2.1.1",
     "lucide-react": "^0.441.0",
