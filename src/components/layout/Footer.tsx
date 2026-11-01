@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, Code2, MapPin } from "lucide-react";
 import { DevHorizonButton, DevHorizonBadge } from "@devhorizon/dls";
 import NextGenLogo from "../ui/NextGenLogo";
@@ -29,23 +30,43 @@ export const Footer: React.FC = () => {
           {/* Specialized Courses */}
           <div>
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4">
-              Specialized Courses
+              Flagship Program
             </h4>
             <ul className="space-y-2.5 text-xs">
               <li>
-                <a href="#courses" className="hover:text-white transition-colors">
-                  AI Engineering and Generative AI
-                </a>
+                <Link
+                  to="/course/ai-engineering-generative-ai"
+                  className="hover:text-white transition-colors flex items-center gap-1 text-[#E6CA83] font-medium"
+                >
+                  <span>AI Engineering & Generative AI</span>
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 bg-[#C5A253]/20 text-[#E6CA83] rounded">
+                    72 Hours
+                  </span>
+                </Link>
               </li>
               <li>
-                <a href="#courses" className="hover:text-white transition-colors">
-                  Full Stack Development
-                </a>
+                <Link
+                  to="/course/ai-engineering-generative-ai#curriculum"
+                  className="hover:text-white transition-colors"
+                >
+                  11-Module Curriculum
+                </Link>
               </li>
               <li>
-                <a href="#courses" className="hover:text-white transition-colors">
-                  Cyber Security and Ethical Hacking using AI
-                </a>
+                <Link
+                  to="/course/ai-engineering-generative-ai#audience"
+                  className="hover:text-white transition-colors"
+                >
+                  College & Professional Tracks
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/course/ai-engineering-generative-ai#projects"
+                  className="hover:text-white transition-colors"
+                >
+                  Hands-On Capstone Project
+                </Link>
               </li>
             </ul>
           </div>

@@ -27,7 +27,7 @@ export const EnrollmentCTASection: React.FC<EnrollmentCTASectionProps> = ({
         </h2>
 
         <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          Step into a curriculum engineered for real software building. Master AI Engineering, Full Stack Development, or Cyber Security under senior tech mentors.
+          Step into a curriculum engineered for real software building. Master AI Engineering & Generative AI under experienced industry practitioners.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">

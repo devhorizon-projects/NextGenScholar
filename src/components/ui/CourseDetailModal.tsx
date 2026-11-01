@@ -1,5 +1,6 @@
 import React from "react";
-import { X, Clock, Layers, Award, ShieldCheck, ArrowRight, BookOpen } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { X, Clock, Layers, Award, ShieldCheck, ArrowRight, BookOpen, ExternalLink } from "lucide-react";
 import { DevHorizonButton, DevHorizonBadge } from "@devhorizon/dls";
 import { CourseItem } from "../../types";
 
@@ -14,7 +15,10 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({
   onClose,
   onEnroll,
 }) => {
+  const navigate = useNavigate();
   if (!course) return null;
+
+  const isFlagshipAi = course.id === "course-ai-genai";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
@@ -115,13 +119,27 @@ export const CourseDetailModal: React.FC<CourseDetailModalProps> = ({
           </div>
 
           {/* Action */}
-          <div className="flex items-center justify-between pt-4 border-t border-white/10">
-            <button
-              onClick={onClose}
-              className="px-4 py-2 text-xs font-semibold text-gray-400 hover:text-white"
-            >
-              Close
-            </button>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-white/10">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={onClose}
+                className="px-4 py-2 text-xs font-semibold text-gray-400 hover:text-white"
+              >
+                Close
+              </button>
+              {isFlagshipAi && (
+                <button
+                  onClick={() => {
+                    onClose();
+                    navigate("/course/ai-engineering-generative-ai");
+                  }}
+                  className="px-3 py-2 text-xs font-mono text-[#E6CA83] hover:text-white bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 flex items-center gap-1.5 transition-colors cursor-pointer"
+                >
+                  <ExternalLink className="w-3.5 h-3.5 text-[#C5A253]" />
+                  <span>View Dedicated Course Page</span>
+                </button>
+              )}
+            </div>
             <DevHorizonButton
               variant="primary"
               size="md"

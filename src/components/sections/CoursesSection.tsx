@@ -1,5 +1,6 @@
 import React from "react";
-import { Cpu, Layers, Shield, CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Cpu, Layers, Shield, CheckCircle2, ArrowRight } from "lucide-react";
 import { DevHorizonServiceCard } from "@devhorizon/dls";
 import { MOCK_COURSES } from "../../data/mockData";
 import { CourseItem } from "../../types";
@@ -9,6 +10,8 @@ interface CoursesSectionProps {
 }
 
 export const CoursesSection: React.FC<CoursesSectionProps> = ({ onSelectCourse }) => {
+  const navigate = useNavigate();
+
   const getIcon = (name: string) => {
     switch (name) {
       case "Cpu":
@@ -41,7 +44,7 @@ export const CoursesSection: React.FC<CoursesSectionProps> = ({ onSelectCourse }
 
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono px-3.5 py-1.5 rounded-full bg-black/5 text-[#0E1012] font-bold">
-              3 Comprehensive Courses
+              Flagship Industry Program
             </span>
             <span className="text-xs font-mono px-3.5 py-1.5 rounded-full bg-[#8D6A2C]/10 text-[#8D6A2C] font-bold">
               Learn Today • Lead Tomorrow
@@ -49,39 +52,61 @@ export const CoursesSection: React.FC<CoursesSectionProps> = ({ onSelectCourse }
           </div>
         </div>
 
-        {/* 3 Courses Grid using DevHorizonServiceCard (WhiteServiceCard) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {MOCK_COURSES.map((course) => (
-            <div key={course.id} className="flex flex-col justify-between">
-              <DevHorizonServiceCard
-                icon={getIcon(course.iconName)}
-                title={course.title}
-                description={course.description}
-                badge={course.badge || course.duration}
-                linkText="View Full Syllabus & Skills"
-                onLinkClick={() => onSelectCourse(course)}
-                className="h-full hover:border-[#C5A253]/50 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_-8px_rgba(197,162,83,0.15)]"
-              />
+        {/* Flagship Course Showcase */}
+        <div className="max-w-3xl mx-auto">
+          {MOCK_COURSES.map((course) => {
+            const isFlagshipAi = course.id === "course-ai-genai";
 
-              {/* Course Highlights & Outcome */}
-              <div className="mt-4 p-4 rounded-xl bg-[#F8F9FA] border border-black/5 text-xs text-[#5F6672] space-y-2">
-                <div className="font-semibold text-[#0E1012] flex items-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>{course.keyOutcome}</span>
-                </div>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {course.skills.slice(0, 4).map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="text-[10px] font-mono px-2 py-0.5 rounded bg-black/5 text-[#34363A]"
+            return (
+              <div key={course.id} className="flex flex-col justify-between">
+                <DevHorizonServiceCard
+                  icon={getIcon(course.iconName)}
+                  title={course.title}
+                  description={course.description}
+                  badge="Flagship • 72 Hours"
+                  linkText="Explore Dedicated Course Page →"
+                  onLinkClick={() => {
+                    navigate("/course/ai-engineering-generative-ai");
+                  }}
+                  className="h-full border-[#C5A253] ring-1 ring-[#C5A253]/30 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_40px_-8px_rgba(197,162,83,0.15)]"
+                />
+
+                {/* Course Highlights & Outcome */}
+                <div className="mt-4 p-5 rounded-2xl bg-[#F8F9FA] border border-black/5 text-xs text-[#5F6672] space-y-3">
+                  <div className="font-semibold text-[#0E1012] flex items-center gap-2 text-sm">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                    <span>{course.keyOutcome}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {course.skills.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs font-mono px-2.5 py-1 rounded-md bg-black/5 text-[#34363A]"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                    <button
+                      onClick={() => navigate("/course/ai-engineering-generative-ai")}
+                      className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-[#8D6A2C] via-[#E6CA83] to-[#B18A43] text-[#111214] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer"
                     >
-                      {skill}
-                    </span>
-                  ))}
+                      <span>Explore Full 72-Hour Course Page</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => onSelectCourse(course)}
+                      className="py-3 px-4 rounded-xl bg-white border border-black/10 hover:border-black/20 text-[#0E1012] font-semibold text-xs sm:text-sm transition-colors cursor-pointer"
+                    >
+                      Quick Syllabus Modal
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

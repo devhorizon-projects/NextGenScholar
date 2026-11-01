@@ -2,7 +2,7 @@ export interface CourseItem {
   id: string;
   title: string;
   duration: string;
-  level: "Beginner to Advanced" | "Intermediate to Pro" | "Advanced Mastery";
+  level: "Beginner to Intermediate" | "Beginner to Advanced" | "Intermediate to Pro" | "Advanced Mastery";
   category: string;
   description: string;
   modules: string[];
