@@ -1,0 +1,22 @@
+baseURL = 'https://devhorizon-projects.github.io/NextGenScholar/'
+defaultContentLanguage = 'en'
+title = 'NextGen Scholars | Learn Today • Lead Tomorrow'
+
+# Clean URL resolution under GitHub Pages subpath
+canonifyURLs = false
+
+[params]
+  description = 'Grooming high-impact tech leaders through practical, project-driven training in AI Engineering & Generative AI. Learn today • Lead tomorrow.'
+  tagline = 'Learn today • Lead tomorrow'
+  logo = 'images/nextgen-scholars-logo.jpg'
+  email = 'contact@nextgenscholar.org'
+  headquarters = 'Global Tech Hubs & Online'
+  year = '2026'
+
+[pagination]
+  pagerSize = 10
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

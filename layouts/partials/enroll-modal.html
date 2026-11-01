@@ -1,0 +1,176 @@
+<!-- Dedicated AI Engineering & Generative AI Enrollment Modal -->
+<div id="aiEnrollModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-container">
+    <!-- Modal Header -->
+    <div style="padding: 1.25rem 1.5rem; background: #131518; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 0.65rem;">
+        <div style="width: 28px; height: 28px; border-radius: 8px; background: rgba(197, 162, 83, 0.15); border: 1px solid rgba(197, 162, 83, 0.3); display: flex; align-items: center; justify-content: center; color: #E6CA83;">
+          <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 id="modalTitle" style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; line-height: 1.2;">
+            AI Engineering & Generative AI
+          </h3>
+          <span style="font-size: 0.65rem; color: #E6CA83; font-family: var(--font-mono); text-transform: uppercase;">
+            72-Hour Structured Flagship Cohort
+          </span>
+        </div>
+      </div>
+
+      <button type="button" onclick="closeEnrollModal()" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #8E95A0; padding: 0.4rem; cursor: pointer;" aria-label="Close modal">
+        <svg style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Form Content Container -->
+    <div id="enrollFormContainer" style="padding: 1.75rem;">
+      <form id="aiEnrollForm" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <input type="hidden" id="enrollTierInput" name="tier" value="early-bird" />
+
+        <!-- Program Locked Banner -->
+        <div style="padding: 0.85rem 1rem; border-radius: 0.75rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: space-between;">
+          <div>
+            <div style="font-size: 0.65rem; font-family: var(--font-mono); text-transform: uppercase; color: #E6CA83; letter-spacing: 0.08em; font-weight: 700;">
+              Enrolling Specifically In:
+            </div>
+            <div style="font-size: 0.9rem; font-weight: 800; color: #FFFFFF; margin-top: 0.2rem;">
+              AI Engineering & Generative AI
+            </div>
+          </div>
+          <span class="dls-badge dls-badge-sm dls-badge-silver">
+            8 WEEKS • 72H
+          </span>
+        </div>
+
+        <!-- Admission Tier Selector -->
+        <div>
+          <label class="dls-form-label">Select Admission Plan</label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <button type="button" id="tierBtnEarly" class="tier-toggle-btn selected" onclick="setEnrollTier('early-bird')">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
+                <span class="tier-title" style="font-size: 0.8125rem; font-weight: 700;">Early-Bird</span>
+                <span style="font-family: var(--font-mono); font-weight: 800; color: #FFFFFF; font-size: 0.8125rem;">₹19,999</span>
+              </div>
+              <div style="font-size: 0.65rem; color: #8E95A0;">Limited Inaugural (33% OFF)</div>
+            </button>
+
+            <button type="button" id="tierBtnStandard" class="tier-toggle-btn" onclick="setEnrollTier('standard')">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.2rem;">
+                <span class="tier-title" style="font-size: 0.8125rem; font-weight: 700;">Standard</span>
+                <span style="font-family: var(--font-mono); font-weight: 800; color: #FFFFFF; font-size: 0.8125rem;">₹29,999</span>
+              </div>
+              <div style="font-size: 0.65rem; color: #8E95A0;">Regular Cohort Tuition</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Full Name -->
+        <div>
+          <label class="dls-form-label" for="enrollName">Full Name *</label>
+          <input type="text" id="enrollName" required placeholder="e.g. Alex Morgan" class="dls-input" />
+          <div id="enrollNameError" class="form-error-msg"></div>
+        </div>
+
+        <!-- Email & Phone -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+          <div>
+            <label class="dls-form-label" for="enrollEmail">Email Address *</label>
+            <input type="email" id="enrollEmail" required placeholder="alex@domain.com" class="dls-input" />
+            <div id="enrollEmailError" class="form-error-msg"></div>
+          </div>
+          <div>
+            <label class="dls-form-label" for="enrollPhone">Phone Number *</label>
+            <input type="tel" id="enrollPhone" required placeholder="+91 98765 43210" class="dls-input" />
+            <div id="enrollPhoneError" class="form-error-msg"></div>
+          </div>
+        </div>
+
+        <!-- Profile & Background -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+          <div>
+            <label class="dls-form-label" for="enrollCategory">Learner Profile *</label>
+            <select id="enrollCategory" class="dls-input">
+              <option value="College Student">College Student</option>
+              <option value="Working Professional">Working Professional</option>
+            </select>
+          </div>
+          <div>
+            <label class="dls-form-label" for="enrollRole">Current College / Role *</label>
+            <input type="text" id="enrollRole" required placeholder="e.g. 3rd Year CSE or Backend Dev" class="dls-input" />
+            <div id="enrollRoleError" class="form-error-msg"></div>
+          </div>
+        </div>
+
+        <!-- Primary Goal -->
+        <div>
+          <label class="dls-form-label" for="enrollGoal">Primary Learning Objective</label>
+          <select id="enrollGoal" class="dls-input">
+            <option value="Portfolio Building with Deployable AI Projects">Portfolio Building with Deployable AI Projects</option>
+            <option value="Career Transition into AI Engineering">Career Transition into AI Engineering</option>
+            <option value="Upskilling for Current Engineering Role">Upskilling for Current Engineering Role</option>
+            <option value="Building an AI Product or Startup">Building an AI Product or Startup</option>
+          </select>
+        </div>
+
+        <!-- Consent -->
+        <div>
+          <label style="display: flex; align-items: flex-start; gap: 0.65rem; cursor: pointer; font-size: 0.75rem; color: #8E95A0; line-height: 1.5;">
+            <input type="checkbox" id="enrollConsent" checked style="margin-top: 0.2rem; accent-color: var(--ngs-gold-primary);" />
+            <span>I confirm my enrollment interest in the AI Engineering cohort and agree to receive schedule notices and onboarding instructions.</span>
+          </label>
+          <div id="enrollConsentError" class="form-error-msg"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <div style="padding-top: 0.5rem;">
+          <button type="submit" class="dls-btn dls-btn-lg dls-btn-gold" style="width: 100%; justify-content: center; font-size: 0.95rem;">
+            <span id="enrollSubmitBtnText">Submit AI Engineering Enrollment (₹19,999)</span>
+            <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div style="text-align: center; font-size: 0.7rem; color: #626873; font-family: var(--font-mono);">
+          🔒 Confidential registration • Exclusively for AI Engineering & Generative AI
+        </div>
+      </form>
+    </div>
+
+    <!-- Success Confirmation Container -->
+    <div id="enrollSuccessContainer" style="display: none; padding: 2.5rem 2rem; text-align: center;">
+      <div style="width: 64px; height: 64px; border-radius: 1rem; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: #10B981; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem auto;">
+        <svg style="width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path>
+        </svg>
+      </div>
+
+      <div class="dls-badge dls-badge-sm dls-badge-silver" style="margin-bottom: 0.75rem;">
+        ENROLLMENT RECORDED • <span id="enrollSubmissionId">NGS-AI-829104</span>
+      </div>
+
+      <h3 style="font-size: 1.5rem; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; margin-bottom: 0.5rem;">
+        Welcome to AI Engineering, <span id="enrollSuccessName">Learner</span>!
+      </h3>
+
+      <p style="font-size: 0.875rem; color: #8E95A0; line-height: 1.6; max-width: 420px; margin: 0 auto 1.5rem auto;">
+        Your reservation for the <strong style="color: #FFFFFF;">AI Engineering & Generative AI</strong> flagship cohort under the <span id="enrollSuccessTier" style="color: #E6CA83; font-weight: 700;">Early-Bird (₹19,999)</span> plan has been received.
+      </p>
+
+      <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 0.75rem; padding: 1rem; text-align: left; font-size: 0.75rem; font-family: var(--font-mono); color: #D4D8DE; margin-bottom: 1.5rem; line-height: 1.7;">
+        <div style="color: #E6CA83; font-weight: 700; margin-bottom: 0.25rem;">Next Steps:</div>
+        <div>• Confirmation email sent to <strong id="enrollSuccessEmail" style="color: #FFFFFF;">your email</strong>.</div>
+        <div>• Academic coordinator will confirm schedule and Discord invite.</div>
+        <div>• 100% online cohort setup link will be provided prior to Day 1.</div>
+      </div>
+
+      <button type="button" class="dls-btn dls-btn-silver" style="width: 100%; justify-content: center;" onclick="closeEnrollModal()">
+        Done & Return to Course
+      </button>
+    </div>
+  </div>
+</div>

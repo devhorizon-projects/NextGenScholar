@@ -1,0 +1,85 @@
+{
+  "brand": {
+    "name": "NextGen Scholars",
+    "tagline": "Learn today • Lead tomorrow",
+    "subheading": "Grooming high-impact tech leaders through practical, project-driven learning, comprehensive skill grooming, and real-world tech contribution.",
+    "contactEmail": "contact@nextgenscholar.org",
+    "headquarters": "Global Tech Hubs & Online"
+  },
+  "course": {
+    "title": "AI Engineering & Generative AI",
+    "duration": "8 Weeks • 72 Planned Hours",
+    "level": "Beginner to Intermediate",
+    "description": "Master the engineering of foundation models, multi-agent workflows, Retrieval-Augmented Generation (RAG), and deploy enterprise-grade AI applications with guidance from experienced industry practitioners.",
+    "skills": ["Generative AI", "Python", "RAG Systems", "Vector Databases", "AI Agents", "FastAPI", "Evaluation", "Docker & Cloud MLOps"],
+    "keyOutcome": "Architect, build, and deploy an end-to-end production AI capstone project",
+    "link": "courses/ai-engineering-generative-ai/"
+  },
+  "mentors": [
+    {
+      "name": "Alex Rivera",
+      "role": "Staff AI Engineer",
+      "company": "Ex-Google DeepMind / Frontier Labs",
+      "expertise": ["Large Language Models", "Agentic Systems", "MLOps"],
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+      "bio": "Pioneering LLM infrastructure and multi-agent platforms. Dedicated to training the next generation of applied AI engineers."
+    },
+    {
+      "name": "Vikram Sengupta",
+      "role": "Principal Systems Architect",
+      "company": "Enterprise Cloud Systems",
+      "expertise": ["Distributed Microservices", "FastAPI", "Vector Search"],
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+      "bio": "Over 14 years scaling backend systems and cloud APIs handling millions of daily active AI requests."
+    },
+    {
+      "name": "Kira Thorne",
+      "role": "AI Security & Evaluation Lead",
+      "company": "Cyber Defense Vanguard",
+      "expertise": ["Prompt Injections", "AI Guardrails", "Evaluation Benchmarks"],
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+      "bio": "Specialized in AI security hardening, adversarial testing, and building automated evaluation harnesses."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Marcus Chen",
+      "role": "Applied AI Engineer",
+      "quote": "The project-based curriculum changed everything. I stopped watching endless tutorials and started building real systems with automated evaluation, Docker, and scalable RAG pipelines.",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+      "achievement": "Shipped open-source RAG evaluation tool with 2,500+ stars"
+    },
+    {
+      "name": "Sophia Martinez",
+      "role": "AI Application Developer",
+      "quote": "Learning how to design multi-agent workflows and optimize vector retrieval gave me the practical confidence to architect generative AI features at my company.",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+      "achievement": "Built production AI customer assistant handling 40k queries/day"
+    },
+    {
+      "name": "David Kim",
+      "role": "AI Platform Engineer",
+      "quote": "The focus on production AI deployment and guardrails is unprecedented. We learned to secure LLM endpoints against prompt injection and optimize latency and token costs.",
+      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80",
+      "achievement": "Deployed live multi-tenant AI search engine in production"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What makes NextGen Scholars different from traditional coding bootcamps?",
+      "a": "NextGen Scholars focuses on grooming practical, high-impact skills required in modern engineering teams. Rather than passive lectures, every learner builds production-grade software, receives direct feedback from senior industry engineers, and contributes actively to real-world tech solutions."
+    },
+    {
+      "q": "Is this course suitable for beginners?",
+      "a": "Yes. Our AI Engineering & Generative AI program starts with Python for AI Engineering, ensuring learners have the required programming and API fundamentals before advancing to machine learning, LLMs, and RAG architectures."
+    },
+    {
+      "q": "What does 'Learn today • Lead tomorrow' mean in practice?",
+      "a": "It represents our core philosophy: gaining master-level technical mastery today so you can lead tech initiatives, launch products, architect robust systems, and mentor others tomorrow."
+    },
+    {
+      "q": "Do students work on real-world projects?",
+      "a": "Yes. 100% of the curriculum revolves around building, reviewing, deploying, and maintaining real software. You will complete your course with a public, battle-tested portfolio."
+    }
+  ]
+}

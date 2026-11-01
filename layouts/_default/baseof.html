@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | NextGen Scholars{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+
+  <link rel="icon" type="image/jpeg" href="{{ "images/nextgen-scholars-logo.jpg" | relURL }}">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- DevHorizon Design Language System (DLS) Stylesheet Library -->
+  <link rel="stylesheet" href="{{ "css/dls.css" | relURL }}">
+  
+  <!-- Site Theme & Accents -->
+  <link rel="stylesheet" href="{{ "css/theme.css" | relURL }}">
+</head>
+<body class="bg-dark-primary">
+  {{ block "header" . }}
+    {{ partial "header.html" . }}
+  {{ end }}
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ block "footer" . }}
+    {{ partial "footer.html" . }}
+  {{ end }}
+
+  <!-- Dedicated AI Engineering Course Enrollment Modal -->
+  {{ partial "enroll-modal.html" . }}
+
+  <!-- DLS Core Interactive Script -->
+  <script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

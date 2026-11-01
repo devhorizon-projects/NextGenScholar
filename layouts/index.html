@@ -1,0 +1,304 @@
+{{ define "main" }}
+{{ $home := index hugo.Data "home" }}
+
+<!-- Hero Section (Dark Obsidian DLS Canvas) -->
+<section style="position: relative; padding: 8rem 0 6rem 0; overflow: hidden; background: #111214;">
+  <!-- Glows -->
+  <div class="glow-gold" style="top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 380px;"></div>
+  <div class="glow-silver" style="top: 25%; right: -150px; width: 400px; height: 400px;"></div>
+  <div style="position: absolute; inset: 0;" class="bg-mesh-grid pointer-events-none"></div>
+
+  <div class="container-dls" style="position: relative; z-index: 2;">
+    <div style="max-width: 52rem; margin: 0 auto; text-align: center; display: flex; flex-direction: column; gap: 1.75rem;">
+      <!-- Overline Badge -->
+      <div>
+        <div class="dls-badge dls-badge-silver">
+          <span class="dls-dot"></span>
+          <span>Learn Today • Lead Tomorrow</span>
+        </div>
+      </div>
+
+      <!-- Display Title -->
+      <h1 class="dls-display-title">
+        Grooming High-Impact <span class="dls-text-metallic">Tech Leaders</span> To <span class="text-metallic-gold">Build The Future</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p style="font-size: 1.125rem; color: #C7C9CC; max-width: 42rem; margin: 0 auto; line-height: 1.65; font-weight: 300;">
+        Not about passive lectures or theoretical research—this is all about deep, hands-on learning, intensive skill grooming, and building production-ready systems that contribute directly to the global tech ecosystem.
+      </p>
+
+      <!-- CTAs -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; padding-top: 0.5rem;">
+        <a href="#courses" class="dls-btn dls-btn-lg dls-btn-gold" style="font-size: 1rem;">
+          <span>Explore Flagship Course</span>
+          <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"></path>
+          </svg>
+        </a>
+
+        <button type="button" class="dls-btn dls-btn-lg dls-btn-secondary" onclick="openEnrollModal('early-bird')">
+          <span>Enroll for Next Cohort</span>
+          <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Quick Trust Indicators -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem; padding-top: 1.5rem; font-size: 0.75rem; color: #8E95A0; font-family: var(--font-mono);">
+        <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span style="color: #E6CA83;">✓</span> 100% Project-Driven
+        </span>
+        <span>•</span>
+        <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span style="color: #10B981;">✓</span> Real-World Tech Contributions
+        </span>
+        <span>•</span>
+        <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span style="color: #C0C5CC;">✓</span> Practitioners with 4+ Years Experience
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- White Architectural Section: Flagship Specialized Course -->
+<section id="courses" class="dls-section dls-section-white">
+  <div class="container-dls">
+    <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3.5rem;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+        <div>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #8D6A2C; display: block; margin-bottom: 0.5rem;">
+            Specialized Engineering Curriculum
+          </span>
+          <h2 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: #0E1012; letter-spacing: -0.025em; line-height: 1.15;">
+            Master Production AI Engineering
+          </h2>
+        </div>
+
+        <div style="display: flex; gap: 0.5rem;">
+          <span class="dls-badge dls-badge-sm" style="background: rgba(0,0,0,0.05); color: #0E1012; border: 1px solid rgba(0,0,0,0.1);">
+            Flagship Program
+          </span>
+          <span class="dls-badge dls-badge-sm" style="background: rgba(141,106,44,0.12); color: #8D6A2C; border: 1px solid rgba(141,106,44,0.3);">
+            72 Planned Hours
+          </span>
+        </div>
+      </div>
+      <p style="font-size: 1rem; color: #5F6672; max-width: 48rem; line-height: 1.6;">
+        Every module is built around deliberate practice, code reviews from senior engineers, and shipping production-level systems that contribute measurable value to the global software ecosystem.
+      </p>
+    </div>
+
+    <!-- Flagship Showcase Card -->
+    <div style="max-width: 52rem; margin: 0 auto;">
+      <div class="dls-card-white" style="border: 2px solid rgba(197, 162, 83, 0.4); box-shadow: 0 12px 36px rgba(197, 162, 83, 0.12); border-radius: 1.5rem; padding: 2.5rem;">
+        <!-- Card Top -->
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem;">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div class="dls-icon-box" style="margin-bottom: 0; background: rgba(197, 162, 83, 0.12); border: 1px solid rgba(197, 162, 83, 0.3); color: #8D6A2C;">
+              <svg style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="dls-card-timeline" style="color: #8D6A2C; margin-bottom: 0.2rem;">{{ $home.course.duration }}</div>
+              <h3 class="dls-card-title" style="margin-bottom: 0; font-size: 1.5rem;">{{ $home.course.title }}</h3>
+            </div>
+          </div>
+
+          <span class="dls-badge dls-badge-sm" style="background: rgba(16, 185, 129, 0.1); color: #047857; border: 1px solid rgba(16, 185, 129, 0.3); font-weight: 700;">
+            Enrollment Open
+          </span>
+        </div>
+
+        <p class="dls-card-desc" style="font-size: 1rem; color: #4B5563; margin-bottom: 1.5rem;">
+          {{ $home.course.description }}
+        </p>
+
+        <!-- Highlights & Skills -->
+        <div style="background: #F9FAFB; border: 1px solid rgba(0,0,0,0.06); border-radius: 1rem; padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div style="font-weight: 700; font-size: 0.875rem; color: #111827; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <svg style="width: 18px; height: 18px; color: #059669; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span>Key Outcome: {{ $home.course.keyOutcome }}</span>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+            {{ range $home.course.skills }}
+              <span style="font-size: 0.7rem; font-family: var(--font-mono); padding: 0.25rem 0.6rem; border-radius: 6px; background: rgba(0,0,0,0.06); color: #374151; font-weight: 600;">
+                {{ . }}
+              </span>
+            {{ end }}
+          </div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+          <a href="{{ $home.course.link | relURL }}" class="dls-btn dls-btn-gold" style="flex: 1; min-width: 240px; justify-content: center; font-size: 0.9375rem;">
+            <span>Explore Full 72-Hour Course Page & Pricing</span>
+            <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </a>
+
+          <button type="button" class="dls-btn dls-btn-secondary" style="border: 1px solid rgba(0,0,0,0.15); color: #111827; background: #FFFFFF; font-size: 0.875rem;" onclick="openEnrollModal('early-bird')">
+            <span>Quick Enroll (₹19,999)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Veteran Tech Mentors & Practitioners -->
+<section id="mentors" class="dls-section bg-dark-primary">
+  <div class="container-dls">
+    <div style="text-align: center; max-width: 44rem; margin: 0 auto 4rem auto; display: flex; flex-direction: column; gap: 1rem;">
+      <div>
+        <span class="dls-badge dls-badge-silver">
+          Practitioner Faculty Model
+        </span>
+      </div>
+      <h2 class="dls-section-title">Learn from People Who Build in the Industry</h2>
+      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
+        Every mentor is a verified senior engineer with a minimum of 4 years of hands-on production software and AI experience.
+      </p>
+    </div>
+
+    <!-- 3 Mentors Grid -->
+    <div class="dls-grid-3">
+      {{ range $home.mentors }}
+      <div class="dls-card-dark" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;">
+            <img src="{{ .image }}" alt="{{ .name }}" style="width: 58px; height: 58px; border-radius: 12px; object-fit: cover; border: 1px solid rgba(255,255,255,0.15);" />
+            <div>
+              <h4 style="font-size: 1.125rem; font-weight: 800; color: #FFFFFF;">{{ .name }}</h4>
+              <div style="font-size: 0.8125rem; color: #E6CA83; font-weight: 600;">{{ .role }}</div>
+              <div style="font-size: 0.75rem; color: #8E95A0; font-family: var(--font-mono);">{{ .company }}</div>
+            </div>
+          </div>
+          <p style="font-size: 0.875rem; color: #D4D8DE; line-height: 1.6; margin-bottom: 1.25rem;">
+            {{ .bio }}
+          </p>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06);">
+          {{ range .expertise }}
+            <span style="font-size: 0.65rem; font-family: var(--font-mono); padding: 0.2rem 0.5rem; border-radius: 4px; background: rgba(255,255,255,0.04); color: #8E95A0; border: 1px solid rgba(255,255,255,0.06);">
+              {{ . }}
+            </span>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Learner Tech Impact & Success Stories -->
+<section id="testimonials" class="dls-section" style="background: #14161A; border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="container-dls">
+    <div style="text-align: center; max-width: 44rem; margin: 0 auto 4rem auto; display: flex; flex-direction: column; gap: 1rem;">
+      <div>
+        <span class="dls-badge dls-badge-silver">
+          Real Impact
+        </span>
+      </div>
+      <h2 class="dls-section-title">Built by NextGen Scholars</h2>
+      <p style="font-size: 1rem; color: #8E95A0;">
+        From college students building production portfolios to developers architecting enterprise GenAI.
+      </p>
+    </div>
+
+    <!-- 3 Stories Grid -->
+    <div class="dls-grid-3">
+      {{ range $home.testimonials }}
+      <div class="dls-card-dark" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <p style="font-size: 0.9375rem; color: #D4D8DE; line-height: 1.65; margin-bottom: 1.5rem; font-style: italic;">
+          "{{ .quote }}"
+        </p>
+
+        <div>
+          <div style="padding: 0.75rem; border-radius: 8px; background: rgba(197,162,83,0.1); border: 1px solid rgba(197,162,83,0.25); color: #E6CA83; font-size: 0.75rem; font-family: var(--font-mono); margin-bottom: 1rem;">
+            🏆 {{ .achievement }}
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <img src="{{ .avatar }}" alt="{{ .name }}" style="width: 40px; height: 40px; border-radius: 9999px; object-fit: cover;" />
+            <div>
+              <div style="font-weight: 700; font-size: 0.875rem; color: #FFFFFF;">{{ .name }}</div>
+              <div style="font-size: 0.75rem; color: #8E95A0;">{{ .role }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Frequently Asked Questions -->
+<section id="faqs" class="dls-section bg-dark-primary">
+  <div class="container-dls">
+    <div style="text-align: center; max-width: 44rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
+      <div>
+        <span class="dls-badge dls-badge-silver">Advisory</span>
+      </div>
+      <h2 class="dls-section-title">Frequently Asked Questions</h2>
+      <p style="font-size: 1rem; color: #8E95A0;">
+        Transparent answers regarding our curriculum, live format, and project execution.
+      </p>
+    </div>
+
+    <div style="max-w: 48rem; margin: 0 auto; max-width: 48rem;">
+      {{ range $i, $faq := $home.faqs }}
+      <div class="accordion-item {{ if eq $i 0 }}open{{ end }}">
+        <button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+          <span>{{ $faq.q }}</span>
+          <svg class="accordion-chevron" style="width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          {{ $faq.a }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Enrollment CTA Banner Section -->
+<section style="position: relative; padding: 6rem 0; overflow: hidden; background: linear-gradient(180deg, #16181C 0%, #111214 100%); border-top: 1px solid rgba(255,255,255,0.08);">
+  <div class="glow-gold" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 300px;"></div>
+
+  <div class="container-dls" style="position: relative; z-index: 2; text-align: center;">
+    <div style="max-width: 48rem; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
+      <div class="dls-badge dls-badge-silver">
+        Learn Today • Lead Tomorrow
+      </div>
+
+      <h2 class="dls-section-title" style="font-size: clamp(2.25rem, 4vw, 3.25rem);">
+        Ready to Groom Your Skills & <span class="text-metallic-gold">Contribute to Modern Tech?</span>
+      </h2>
+
+      <p style="font-size: 1.125rem; color: #C7C9CC; max-width: 36rem; line-height: 1.6;">
+        Step into a curriculum engineered for real software building. Master AI Engineering & Generative AI under experienced industry practitioners.
+      </p>
+
+      <div style="padding-top: 1rem;">
+        <button type="button" class="dls-btn dls-btn-lg dls-btn-gold" onclick="openEnrollModal('early-bird')">
+          <span>Enroll in NextGen Cohort (₹19,999)</span>
+          <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

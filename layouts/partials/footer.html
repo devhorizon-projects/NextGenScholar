@@ -1,0 +1,85 @@
+<footer class="dls-footer">
+  <div class="container-dls">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
+      <!-- Brand Column -->
+      <div style="grid-column: span 1; max-width: 380px;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <img src="{{ "images/nextgen-scholars-logo.jpg" | relURL }}" alt="Logo" style="height: 36px; width: 36px; border-radius: 8px; object-fit: cover;" />
+          <div style="font-weight: 800; font-size: 1.1rem; color: #FFFFFF;">NextGen Scholars</div>
+        </div>
+        <p style="font-size: 0.8125rem; color: #8E95A0; line-height: 1.6; margin-bottom: 1.25rem;">
+          Empowering the next generation of technologists through practical, project-driven learning, comprehensive skill grooming, and real-world tech contribution.
+        </p>
+        <div class="dls-badge dls-badge-sm dls-badge-silver">
+          Learn today • Lead tomorrow
+        </div>
+      </div>
+
+      <!-- Flagship Program Navigation -->
+      <div>
+        <h4 style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #FFFFFF; margin-bottom: 1rem;">
+          Flagship Program
+        </h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.8125rem;">
+          <li>
+            <a href="{{ "courses/ai-engineering-generative-ai/" | relURL }}" style="color: #E6CA83; font-weight: 700; display: inline-flex; align-items: center; gap: 0.35rem;">
+              <span>AI Engineering & Generative AI</span>
+              <span class="dls-badge dls-badge-sm dls-badge-gold" style="font-size: 0.6rem; padding: 0.1rem 0.4rem; background: rgba(197,162,83,0.15); color: #E6CA83; border: 1px solid rgba(197,162,83,0.3);">Flagship</span>
+            </a>
+          </li>
+          <li><a href="{{ "courses/ai-engineering-generative-ai/#curriculum" | relURL }}" style="color: #8E95A0; transition: color 0.2s;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#8E95A0'">11-Module Curriculum (72h)</a></li>
+          <li><a href="{{ "courses/ai-engineering-generative-ai/#pricing" | relURL }}" style="color: #8E95A0; transition: color 0.2s;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#8E95A0'">Tuition & Early-Bird Offer</a></li>
+          <li><a href="{{ "courses/ai-engineering-generative-ai/#audience" | relURL }}" style="color: #8E95A0; transition: color 0.2s;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#8E95A0'">College & Professional Tracks</a></li>
+          <li><a href="{{ "courses/ai-engineering-generative-ai/#faqs" | relURL }}" style="color: #8E95A0; transition: color 0.2s;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#8E95A0'">Program FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Platform Links -->
+      <div>
+        <h4 style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #FFFFFF; margin-bottom: 1rem;">
+          Platform
+        </h4>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.8125rem;">
+          <li><a href="{{ "" | relURL }}#mentors" style="color: #8E95A0; transition: color 0.2s;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#8E95A0'">Industry Mentors</a></li>
+          <li><a href="{{ "" | relURL }}#testimonials" style="color: #8E95A0; transition: color 0.2s;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#8E95A0'">Learner Stories</a></li>
+          <li><a href="{{ "" | relURL }}#faqs" style="color: #8E95A0; transition: color 0.2s;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='#8E95A0'">General FAQs</a></li>
+          <li><a href="javascript:void(0)" onclick="openEnrollModal('early-bird')" style="color: #E6CA83;">Apply for Next Cohort</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Dispatch -->
+      <div>
+        <h4 style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #FFFFFF; margin-bottom: 1rem;">
+          Tech Dispatch
+        </h4>
+        <p style="font-size: 0.8125rem; color: #8E95A0; margin-bottom: 0.75rem; line-height: 1.5;">
+          Receive weekly tech deep-dives, RAG tutorials, and cohort announcements.
+        </p>
+        <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to NextGen Scholar Tech Dispatch!');" style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <input type="email" required placeholder="engineer@domain.com" class="dls-input" style="padding: 0.55rem 0.75rem; font-size: 0.75rem;" />
+          <button type="submit" class="dls-btn dls-btn-sm dls-btn-secondary" style="font-size: 0.75rem;">
+            <span>Subscribe</span>
+            <svg style="width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div style="padding-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.75rem; color: #626873; font-family: var(--font-mono);">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span>© 2026 NextGen Scholars. All rights reserved.</span>
+        <span>•</span>
+        <span style="color: #E6CA83;">Learn today • Lead tomorrow</span>
+      </div>
+
+      <div style="display: flex; gap: 1.5rem;">
+        <a href="javascript:void(0)" onclick="openEnrollModal('early-bird')" style="color: #E6CA83;">Enroll in AI Engineering</a>
+        <span>•</span>
+        <span>Built with DevHorizon DLS</span>
+      </div>
+    </div>
+  </div>
+</footer>

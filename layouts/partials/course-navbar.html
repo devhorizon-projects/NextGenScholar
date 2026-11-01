@@ -1,0 +1,84 @@
+<header class="dls-header" style="background: rgba(17, 18, 20, 0.94); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 100;">
+  <div class="container-dls">
+    <div class="dls-nav-container">
+      <!-- Left: Back Button & Logo -->
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="{{ "" | relURL }}" class="dls-btn dls-btn-sm dls-btn-secondary" style="gap: 0.35rem; font-family: var(--font-mono); font-size: 0.75rem;">
+          <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
+          </svg>
+          <span>All Programs</span>
+        </a>
+
+        <a href="{{ "" | relURL }}" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+          <img src="{{ "images/nextgen-scholars-logo.jpg" | relURL }}" alt="Logo" style="height: 32px; width: 32px; border-radius: 8px; object-fit: cover;" />
+          <span style="font-weight: 800; font-size: 0.95rem; color: #FFFFFF;" class="hidden-mobile">NextGen Scholars</span>
+        </a>
+
+        <span class="dls-badge dls-badge-sm dls-badge-silver hidden-mobile">
+          AI Track
+        </span>
+      </div>
+
+      <!-- Center Links -->
+      <ul class="dls-nav-links">
+        <li><a href="#why-this-course" class="dls-nav-link">Overview</a></li>
+        <li><a href="#audience" class="dls-nav-link">Audience</a></li>
+        <li><a href="#curriculum" class="dls-nav-link">Curriculum (72h)</a></li>
+        <li><a href="#pricing" class="dls-nav-link" style="color: #E6CA83; font-weight: 700;">Pricing</a></li>
+        <li><a href="#faqs" class="dls-nav-link">FAQs</a></li>
+      </ul>
+
+      <!-- Right Action -->
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <button type="button" class="dls-btn dls-btn-sm dls-btn-gold" onclick="openEnrollModal('early-bird')">
+          <span>Enroll Now</span>
+          <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+          </svg>
+        </button>
+
+        <button id="courseMobileToggle" type="button" style="display: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #FFFFFF; padding: 0.5rem; cursor: pointer;" aria-label="Toggle Navigation">
+          <svg style="width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="courseMobileMenu" style="display: none; padding: 1.5rem; background: #16181C; border-top: 1px solid rgba(255,255,255,0.1); flex-direction: column; gap: 1rem;">
+    <a href="{{ "" | relURL }}" class="dls-nav-link" style="color: #E6CA83;">← Return to Main Website</a>
+    <a href="#why-this-course" class="dls-nav-link" onclick="closeCourseMobileMenu()">Overview</a>
+    <a href="#audience" class="dls-nav-link" onclick="closeCourseMobileMenu()">Audience</a>
+    <a href="#curriculum" class="dls-nav-link" onclick="closeCourseMobileMenu()">Curriculum (72h)</a>
+    <a href="#pricing" class="dls-nav-link" style="color: #E6CA83; font-weight: 700;" onclick="closeCourseMobileMenu()">Pricing & Fees</a>
+    <a href="#faqs" class="dls-nav-link" onclick="closeCourseMobileMenu()">FAQs</a>
+    <div style="padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+      <button type="button" class="dls-btn dls-btn-gold" style="width: 100%; justify-content: center;" onclick="closeCourseMobileMenu(); openEnrollModal('early-bird');">
+        Enroll Now
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const cToggle = document.getElementById('courseMobileToggle');
+  const cMenu = document.getElementById('courseMobileMenu');
+  if (cToggle && cMenu) {
+    cToggle.addEventListener('click', function() {
+      cMenu.style.display = cMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+  }
+  function closeCourseMobileMenu() {
+    if (cMenu) cMenu.style.display = 'none';
+  }
+</script>
+
+<style>
+  @media (max-width: 768px) {
+    .hidden-mobile { display: none !important; }
+    #courseMobileToggle { display: inline-flex !important; }
+  }
+</style>

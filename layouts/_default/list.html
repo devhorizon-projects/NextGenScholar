@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section class="dls-section bg-dark-primary">
+  <div class="container-dls">
+    <div style="max-width: 52rem; margin: 0 auto;">
+      <h1 class="dls-section-title" style="margin-bottom: 2rem;">{{ .Title }}</h1>
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        {{ range .Pages }}
+        <div class="dls-card-dark">
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h2>
+          <p style="font-size: 0.875rem; color: #8E95A0; margin-bottom: 1rem;">{{ .Description }}</p>
+          <a href="{{ .RelPermalink }}" class="dls-btn dls-btn-sm dls-btn-gold">View Details →</a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,63 @@
+<header class="dls-header">
+  <div class="container-dls">
+    <div class="dls-nav-container">
+      <!-- Brand Logo -->
+      <a href="{{ "" | relURL }}" class="dls-logo" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+        <img src="{{ "images/nextgen-scholars-logo.jpg" | relURL }}" alt="NextGen Scholars Logo" style="height: 38px; width: 38px; border-radius: 10px; object-fit: cover; border: 1px solid rgba(255,255,255,0.15);" />
+        <div>
+          <div style="font-weight: 800; font-size: 1rem; color: #FFFFFF; letter-spacing: -0.02em; line-height: 1.1;">NextGen Scholars</div>
+          <div style="font-size: 0.65rem; color: #E6CA83; text-transform: uppercase; letter-spacing: 0.15em; font-family: var(--font-mono);">Learn • Lead</div>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <ul class="dls-nav-links">
+        <li><a href="{{ "" | relURL }}#courses" class="dls-nav-link">Flagship Course</a></li>
+        <li><a href="{{ "courses/ai-engineering-generative-ai/#curriculum" | relURL }}" class="dls-nav-link">Curriculum (72h)</a></li>
+        <li><a href="{{ "courses/ai-engineering-generative-ai/#pricing" | relURL }}" class="dls-nav-link" style="color: #E6CA83; font-weight: 700;">Pricing</a></li>
+        <li><a href="{{ "" | relURL }}#mentors" class="dls-nav-link">Mentors</a></li>
+        <li><a href="{{ "" | relURL }}#testimonials" class="dls-nav-link">Stories</a></li>
+        <li><a href="{{ "" | relURL }}#faqs" class="dls-nav-link">FAQs</a></li>
+      </ul>
+
+      <!-- Action Button -->
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <button type="button" class="dls-btn dls-btn-sm dls-btn-gold" onclick="openEnrollModal('early-bird')">
+          <span>Enroll Now</span>
+          <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile hamburger -->
+        <button id="mobileMenuToggle" type="button" style="display: none; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #FFFFFF; padding: 0.5rem; cursor: pointer;" aria-label="Toggle Navigation">
+          <svg style="width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileMenu" style="display: none; padding: 1.5rem; background: #16181C; border-top: 1px solid rgba(255,255,255,0.1); flex-direction: column; gap: 1rem;">
+    <a href="{{ "" | relURL }}#courses" class="dls-nav-link" onclick="closeMobileMenu()">Flagship Course</a>
+    <a href="{{ "courses/ai-engineering-generative-ai/#curriculum" | relURL }}" class="dls-nav-link" onclick="closeMobileMenu()">Curriculum (72h)</a>
+    <a href="{{ "courses/ai-engineering-generative-ai/#pricing" | relURL }}" class="dls-nav-link" style="color: #E6CA83; font-weight: 700;" onclick="closeMobileMenu()">Pricing</a>
+    <a href="{{ "" | relURL }}#mentors" class="dls-nav-link" onclick="closeMobileMenu()">Mentors</a>
+    <a href="{{ "" | relURL }}#testimonials" class="dls-nav-link" onclick="closeMobileMenu()">Stories</a>
+    <a href="{{ "" | relURL }}#faqs" class="dls-nav-link" onclick="closeMobileMenu()">FAQs</a>
+    <div style="padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
+      <button type="button" class="dls-btn dls-btn-gold" style="width: 100%; justify-content: center;" onclick="closeMobileMenu(); openEnrollModal('early-bird');">
+        Enroll Now
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  @media (max-width: 768px) {
+    #mobileMenuToggle { display: inline-flex !important; }
+    #mobileMenu.active { display: flex !important; }
+  }
+</style>
