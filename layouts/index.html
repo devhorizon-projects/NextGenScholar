@@ -1,160 +1,418 @@
 {{ define "main" }}
 {{ $home := index hugo.Data "home" }}
+{{ $framework := index hugo.Data "framework" }}
+{{ $programsData := index hugo.Data "programs" }}
 
 <!-- Hero Section (Dark Obsidian DLS Canvas) -->
-<section style="position: relative; padding: 8rem 0 6rem 0; overflow: hidden; background: #111214;">
-  <!-- Glows -->
-  <div class="glow-gold" style="top: 0; left: 50%; transform: translateX(-50%); width: 700px; height: 380px;"></div>
+<section style="position: relative; padding: 7.5rem 0 5.5rem 0; overflow: hidden; background: #111214;">
+  <!-- Ambient Atmospheric Glows -->
+  <div class="glow-gold" style="top: 0; left: 50%; transform: translateX(-50%); width: 750px; height: 380px;"></div>
   <div class="glow-silver" style="top: 25%; right: -150px; width: 400px; height: 400px;"></div>
   <div style="position: absolute; inset: 0;" class="bg-mesh-grid pointer-events-none"></div>
 
   <div class="container-dls" style="position: relative; z-index: 2;">
-    <div style="max-width: 52rem; margin: 0 auto; text-align: center; display: flex; flex-direction: column; gap: 1.75rem;">
+    <div style="max-width: 54rem; margin: 0 auto; text-align: center; display: flex; flex-direction: column; gap: 1.75rem;">
       <!-- Overline Badge -->
       <div>
         <div class="dls-badge dls-badge-silver">
-          <span class="dls-dot"></span>
-          <span>Learn Today • Lead Tomorrow</span>
+          <span class="dls-dot" style="background: #E6CA83;"></span>
+          <span>NextGen Scholars • Learn Today • Lead Tomorrow</span>
         </div>
       </div>
 
       <!-- Display Title -->
       <h1 class="dls-display-title">
-        Grooming High-Impact <span class="dls-text-metallic">Tech Leaders</span> To <span class="text-metallic-gold">Build The Future</span>
+        Professional Technology <span class="text-metallic-gold">Training Programs</span>
       </h1>
 
       <!-- Subtitle -->
-      <p style="font-size: 1.125rem; color: #C7C9CC; max-width: 42rem; margin: 0 auto; line-height: 1.65; font-weight: 300;">
-        Not about passive lectures or theoretical research—this is all about deep, hands-on learning, intensive skill grooming, and building production-ready systems that contribute directly to the global tech ecosystem.
+      <p style="font-size: 1.15rem; color: #C7C9CC; max-width: 44rem; margin: 0 auto; line-height: 1.65; font-weight: 300;">
+        Four industry-oriented online programs designed specifically for <strong>freshers, graduates and college students</strong>. Master high-demand skills through live demonstrations, guided hands-on labs, real assignments, and industry capstone projects.
       </p>
 
       <!-- CTAs -->
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; padding-top: 0.5rem;">
-        <a href="#courses" class="dls-btn dls-btn-lg dls-btn-gold" style="font-size: 1rem;">
-          <span>Explore Flagship Course</span>
+        <a href="#programs" class="dls-btn dls-btn-lg dls-btn-gold" style="font-size: 1rem;">
+          <span>Explore 4 Programs</span>
           <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"></path>
           </svg>
         </a>
 
-        <button type="button" class="dls-btn dls-btn-lg dls-btn-secondary" onclick="openEnrollModal('early-bird')">
-          <span>Enroll for Next Cohort</span>
+        <a href="#framework" class="dls-btn dls-btn-lg dls-btn-secondary">
+          <span>Program Framework &amp; Hours</span>
           <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
           </svg>
-        </button>
+        </a>
       </div>
 
-      <!-- Quick Trust Indicators -->
+      <!-- Trust Badges Strip -->
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem; padding-top: 1.5rem; font-size: 0.75rem; color: #8E95A0; font-family: var(--font-mono);">
         <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
-          <span style="color: #E6CA83;">✓</span> 100% Project-Driven
+          <span style="color: #E6CA83;">✓</span> 100% Online Instructor-Led
         </span>
         <span>•</span>
         <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
-          <span style="color: #10B981;">✓</span> Real-World Tech Contributions
+          <span style="color: #10B981;">✓</span> 1.5h or 2.0h / Day Options
         </span>
         <span>•</span>
         <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
-          <span style="color: #C0C5CC;">✓</span> Practitioners with 4+ Years Experience
+          <span style="color: #60A5FA;">✓</span> 1W • 2W • 1M • 2M Tracks
+        </span>
+        <span>•</span>
+        <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
+          <span style="color: #E6CA83;">✓</span> Verified Industry Certification
         </span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- White Architectural Section: Flagship Specialized Course -->
-<section id="courses" class="dls-section dls-section-white">
+<!-- SECTION 1: 4 Professional Programs Showcase (#programs) -->
+<section id="programs" class="dls-section bg-dark-primary" style="border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);">
   <div class="container-dls">
-    <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3.5rem;">
-      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
-        <div>
-          <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: #8D6A2C; display: block; margin-bottom: 0.5rem;">
-            Specialized Engineering Curriculum
-          </span>
-          <h2 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: #0E1012; letter-spacing: -0.025em; line-height: 1.15;">
-            Master Production AI Engineering
-          </h2>
-        </div>
-
-        <div style="display: flex; gap: 0.5rem;">
-          <span class="dls-badge dls-badge-sm" style="background: rgba(0,0,0,0.05); color: #0E1012; border: 1px solid rgba(0,0,0,0.1);">
-            Flagship Program
-          </span>
-          <span class="dls-badge dls-badge-sm" style="background: rgba(141,106,44,0.12); color: #8D6A2C; border: 1px solid rgba(141,106,44,0.3);">
-            72 Planned Hours
-          </span>
-        </div>
+    <div style="text-align: center; max-width: 48rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
+      <div>
+        <span class="dls-badge dls-badge-silver">Specialized Technology Tracks</span>
       </div>
-      <p style="font-size: 1rem; color: #5F6672; max-width: 48rem; line-height: 1.6;">
-        Every module is built around deliberate practice, code reviews from senior engineers, and shipping production-level systems that contribute measurable value to the global software ecosystem.
+      <h2 class="dls-section-title">Four Industry-Oriented Training Programs</h2>
+      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
+        Choose your specialized engineering discipline. Every program is delivered in modular durations from 1-Week Foundations to 2-Month Advanced Industry Capstones.
       </p>
     </div>
 
-    <!-- Flagship Showcase Card -->
-    <div style="max-width: 52rem; margin: 0 auto;">
-      <div class="dls-card-white" style="border: 2px solid rgba(197, 162, 83, 0.4); box-shadow: 0 12px 36px rgba(197, 162, 83, 0.12); border-radius: 1.5rem; padding: 2.5rem;">
-        <!-- Card Top -->
-        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem;">
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div class="dls-icon-box" style="margin-bottom: 0; background: rgba(197, 162, 83, 0.12); border: 1px solid rgba(197, 162, 83, 0.3); color: #8D6A2C;">
-              <svg style="width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z"></path>
-              </svg>
-            </div>
-            <div>
-              <div class="dls-card-timeline" style="color: #8D6A2C; margin-bottom: 0.2rem;">{{ $home.course.duration }}</div>
-              <h3 class="dls-card-title" style="margin-bottom: 0; font-size: 1.5rem;">{{ $home.course.title }}</h3>
-            </div>
+    <!-- 4 Programs 2x2 Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.75rem;">
+      {{ range $programsData.programs }}
+      <div class="dls-card-dark" style="display: flex; flex-direction: column; justify-content: space-between; position: relative; border-radius: 1.25rem; padding: 2rem; border: 1px solid rgba(255,255,255,0.08); background: linear-gradient(180deg, #17191E 0%, #121316 100%);">
+        <div>
+          <!-- Top Row: Badge & Program Number -->
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <span class="dls-badge dls-badge-sm" style="background: rgba(197, 162, 83, 0.12); color: #E6CA83; border: 1px solid rgba(197, 162, 83, 0.3);">
+              {{ .badge }}
+            </span>
+            <span style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 800; color: #4B525D;">
+              {{ .number }}
+            </span>
           </div>
 
-          <span class="dls-badge dls-badge-sm" style="background: rgba(16, 185, 129, 0.1); color: #047857; border: 1px solid rgba(16, 185, 129, 0.3); font-weight: 700;">
-            Enrollment Open
-          </span>
-        </div>
+          <!-- Title & Tagline -->
+          <h3 style="font-size: 1.35rem; font-weight: 800; color: #FFFFFF; line-height: 1.25; margin-bottom: 0.65rem;">
+            {{ .title }}
+          </h3>
+          <p style="font-size: 0.875rem; color: #9CA3AF; line-height: 1.55; margin-bottom: 1.25rem;">
+            {{ .tagline }}
+          </p>
 
-        <p class="dls-card-desc" style="font-size: 1rem; color: #4B5563; margin-bottom: 1.5rem;">
-          {{ $home.course.description }}
-        </p>
-
-        <!-- Highlights & Skills -->
-        <div style="background: #F9FAFB; border: 1px solid rgba(0,0,0,0.06); border-radius: 1rem; padding: 1.25rem; margin-bottom: 1.5rem;">
-          <div style="font-weight: 700; font-size: 0.875rem; color: #111827; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
-            <svg style="width: 18px; height: 18px; color: #059669; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span>Key Outcome: {{ $home.course.keyOutcome }}</span>
+          <!-- Key Outcomes Box -->
+          <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.05); border-radius: 0.75rem; padding: 1rem; margin-bottom: 1.25rem;">
+            <div style="font-size: 0.7rem; font-family: var(--font-mono); text-transform: uppercase; color: #E6CA83; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+              <span>⚡</span> Key Competencies Covered
+            </div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.8125rem; color: #D1D5DB;">
+              {{ range first 3 .outcomes }}
+              <li style="display: flex; align-items: flex-start; gap: 0.45rem;">
+                <span style="color: #10B981; font-weight: 700; font-size: 0.8rem;">✓</span>
+                <span style="line-height: 1.4;">{{ . }}</span>
+              </li>
+              {{ end }}
+            </ul>
           </div>
 
-          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-            {{ range $home.course.skills }}
-              <span style="font-size: 0.7rem; font-family: var(--font-mono); padding: 0.25rem 0.6rem; border-radius: 6px; background: rgba(0,0,0,0.06); color: #374151; font-weight: 600;">
+          <!-- Tools Chips -->
+          <div style="margin-bottom: 1.5rem;">
+            <div style="font-size: 0.6875rem; font-family: var(--font-mono); text-transform: uppercase; color: #6B7280; font-weight: 700; margin-bottom: 0.5rem;">
+              Core Tools &amp; Technologies:
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+              {{ range first 6 .tools }}
+              <span style="font-size: 0.6875rem; font-family: var(--font-mono); padding: 0.2rem 0.55rem; border-radius: 4px; background: rgba(255,255,255,0.04); color: #C5CBD3; border: 1px solid rgba(255,255,255,0.06);">
                 {{ . }}
               </span>
+              {{ end }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Bottom: Modular Formats Pill & Actions -->
+        <div>
+          <div style="padding: 0.65rem 0.85rem; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; font-family: var(--font-mono); color: #9CA3AF; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+            <span>Tracks:</span>
+            <span style="color: #E6CA83; font-weight: 600;">1W • 2W • 1M • 2M</span>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="{{ printf "courses/%s/" .slug | relURL }}" class="dls-btn dls-btn-gold" style="flex: 1; justify-content: center; font-size: 0.875rem;">
+              <span>View Curriculum</span>
+              <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+              </svg>
+            </a>
+
+            <button type="button" class="dls-btn dls-btn-secondary" style="font-size: 0.8125rem; padding: 0.5rem 0.85rem;" onclick="openEnrollModalWithProgram('{{ .id }}')">
+              Enroll
+            </button>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: Program Framework & Contact Hours (#framework) -->
+<section id="framework" class="dls-section" style="background: #14161A; border-bottom: 1px solid rgba(255,255,255,0.06);">
+  <div class="container-dls">
+    <div style="text-align: center; max-width: 48rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
+      <div>
+        <span class="dls-badge dls-badge-silver">Structured Delivery Model</span>
+      </div>
+      <h2 class="dls-section-title">Program Framework &amp; Contact Hours</h2>
+      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
+        All programs follow an identical modular framework. Choose the duration that fits your schedule, with options for 1.5 or 2.0 contact hours per day.
+      </p>
+    </div>
+
+    <!-- 4 Audience & Approach Pillars -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 3.5rem;">
+      <div class="dls-card-dark" style="padding: 1.5rem;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(197,162,83,0.12); color: #E6CA83; display: flex; align-items: center; justify-content: center; margin-bottom: 0.85rem;">
+          <svg style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+          </svg>
+        </div>
+        <h4 style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.35rem;">Target Audience</h4>
+        <p style="font-size: 0.8125rem; color: #9CA3AF; line-height: 1.5;">Freshers, graduates, and college students looking to build practical, employable software skills.</p>
+      </div>
+
+      <div class="dls-card-dark" style="padding: 1.5rem;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(16,185,129,0.12); color: #10B981; display: flex; align-items: center; justify-content: center; margin-bottom: 0.85rem;">
+          <svg style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h4 style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.35rem;">Entry Level</h4>
+        <p style="font-size: 0.8125rem; color: #9CA3AF; line-height: 1.5;">Beginner-friendly. No prior commercial industry experience required; fundamentals taught from ground up.</p>
+      </div>
+
+      <div class="dls-card-dark" style="padding: 1.5rem;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(96,165,250,0.12); color: #60A5FA; display: flex; align-items: center; justify-content: center; margin-bottom: 0.85rem;">
+          <svg style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693l-1.57-.393m15.6 0l1.4 3.5a2.25 2.25 0 01-2.09 3.087H4.89a2.25 2.25 0 01-2.09-3.087l1.4-3.5"></path>
+          </svg>
+        </div>
+        <h4 style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.35rem;">100% Online Mode</h4>
+        <p style="font-size: 0.8125rem; color: #9CA3AF; line-height: 1.5;">Instructor-led live sessions, code-alongs, guided breakout labs, interactive assignments, and doubt clearing.</p>
+      </div>
+
+      <div class="dls-card-dark" style="padding: 1.5rem;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(230,202,131,0.12); color: #E6CA83; display: flex; align-items: center; justify-content: center; margin-bottom: 0.85rem;">
+          <svg style="width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
+          </svg>
+        </div>
+        <h4 style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.35rem;">5-Stage Methodology</h4>
+        <p style="font-size: 0.8125rem; color: #9CA3AF; line-height: 1.5;">Concepts → Live Demonstration → Hands-on Practical → Assignment → Milestone / Capstone Project.</p>
+      </div>
+    </div>
+
+    <!-- Contact Hours & Certificate Mapping Table -->
+    <div style="max-width: 58rem; margin: 0 auto 3.5rem auto;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF;">
+          Program Length &amp; Contact Hours Matrix
+        </h3>
+        <span class="dls-badge dls-badge-sm dls-badge-silver">Official Standard</span>
+      </div>
+
+      <div style="background: #17191E; border: 1px solid rgba(255,255,255,0.08); border-radius: 1rem; overflow: hidden;">
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.875rem;">
+            <thead>
+              <tr style="background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: #9CA3AF; letter-spacing: 0.05em;">
+                <th style="padding: 1rem 1.25rem;">Program Length</th>
+                <th style="padding: 1rem 1.25rem;">Working Days</th>
+                <th style="padding: 1rem 1.25rem; color: #E6CA83;">1.5 Hours / Day</th>
+                <th style="padding: 1rem 1.25rem; color: #10B981;">2.0 Hours / Day</th>
+                <th style="padding: 1rem 1.25rem;">Certification Awarded</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{ range $framework.contactHours }}
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04); transition: background 0.15s;">
+                <td style="padding: 1.1rem 1.25rem; font-weight: 800; color: #FFFFFF;">
+                  {{ .length }}
+                </td>
+                <td style="padding: 1.1rem 1.25rem; color: #D1D5DB; font-family: var(--font-mono);">
+                  {{ .days }} days
+                </td>
+                <td style="padding: 1.1rem 1.25rem; color: #E6CA83; font-weight: 700; font-family: var(--font-mono);">
+                  {{ .format90 }}
+                </td>
+                <td style="padding: 1.1rem 1.25rem; color: #10B981; font-weight: 700; font-family: var(--font-mono);">
+                  {{ .format120 }}
+                </td>
+                <td style="padding: 1.1rem 1.25rem; color: #C5CBD3;">
+                  <span style="display: inline-flex; align-items: center; gap: 0.4rem;">
+                    <span style="color: #E6CA83;">🏆</span>
+                    <span>{{ .cert }}</span>
+                  </span>
+                </td>
+              </tr>
+              {{ end }}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Session Formats Comparison -->
+    <div style="max-width: 58rem; margin: 0 auto;">
+      <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1.5rem; text-align: center;">
+        Daily Session Breakdown (90-Minute vs. 120-Minute Formats)
+      </h3>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        <!-- 90-Minute Card -->
+        <div class="dls-card-dark" style="border: 1px solid rgba(197, 162, 83, 0.25); background: linear-gradient(180deg, #1A1D24 0%, #131418 100%); padding: 1.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h4 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">
+              90-Minute Daily Session
+            </h4>
+            <span class="dls-badge dls-badge-sm" style="background: rgba(197, 162, 83, 0.12); color: #E6CA83;">Standard Pace</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+            {{ range $framework.dailyFormats.format90.breakdown }}
+            <div style="padding: 0.75rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.875rem; color: #FFFFFF;">{{ .component }}</div>
+                <div style="font-size: 0.75rem; color: #8E95A0; margin-top: 0.15rem;">{{ .desc }}</div>
+              </div>
+              <span style="font-family: var(--font-mono); font-weight: 800; font-size: 0.875rem; color: #E6CA83; padding-left: 1rem;">
+                {{ .duration }}
+              </span>
+            </div>
             {{ end }}
           </div>
         </div>
 
-        <!-- Action CTAs -->
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-          <a href="{{ $home.course.link | relURL }}" class="dls-btn dls-btn-gold" style="flex: 1; min-width: 240px; justify-content: center; font-size: 0.9375rem;">
-            <span>Explore Full 72-Hour Course Page & Pricing</span>
-            <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
-            </svg>
-          </a>
+        <!-- 120-Minute Card -->
+        <div class="dls-card-dark" style="border: 1px solid rgba(16, 185, 129, 0.25); background: linear-gradient(180deg, #18201E 0%, #121516 100%); padding: 1.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <h4 style="font-size: 1.15rem; font-weight: 800; color: #FFFFFF;">
+              120-Minute Daily Session
+            </h4>
+            <span class="dls-badge dls-badge-sm" style="background: rgba(16, 185, 129, 0.12); color: #10B981;">Extended Lab Pace</span>
+          </div>
 
-          <button type="button" class="dls-btn dls-btn-secondary" style="border: 1px solid rgba(0,0,0,0.15); color: #111827; background: #FFFFFF; font-size: 0.875rem;" onclick="openEnrollModal('early-bird')">
-            <span>Quick Enroll (₹19,999)</span>
-          </button>
+          <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+            {{ range $framework.dailyFormats.format120.breakdown }}
+            <div style="padding: 0.75rem 1rem; border-radius: 8px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.875rem; color: #FFFFFF;">{{ .component }}</div>
+                <div style="font-size: 0.75rem; color: #8E95A0; margin-top: 0.15rem;">{{ .desc }}</div>
+              </div>
+              <span style="font-family: var(--font-mono); font-weight: 800; font-size: 0.875rem; color: #10B981; padding-left: 1rem;">
+                {{ .duration }}
+              </span>
+            </div>
+            {{ end }}
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Veteran Tech Mentors & Practitioners -->
-<section id="mentors" class="dls-section bg-dark-primary">
+<!-- SECTION 3: Assessment & Certification Framework (#assessment) -->
+<section id="assessment" class="dls-section bg-dark-primary" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
+  <div class="container-dls">
+    <div style="text-align: center; max-width: 48rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
+      <div>
+        <span class="dls-badge dls-badge-silver">Rigorous Evaluation</span>
+      </div>
+      <h2 class="dls-section-title">Assessment &amp; Certification Framework</h2>
+      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
+        Every certificate is backed by verifiable performance. No participation certificates for passive attendance—you must demonstrate mastery through quizzes, code artefacts, and working projects.
+      </p>
+    </div>
+
+    <!-- 5 Assessment Components Weightage Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-width: 60rem; margin: 0 auto 2.5rem auto;">
+      {{ range $framework.assessmentWeightage }}
+      <div class="dls-card-dark" style="padding: 1.5rem; text-align: center; border-radius: 1rem;">
+        <div style="font-size: 2rem; font-weight: 800; font-family: var(--font-mono); color: #E6CA83; margin-bottom: 0.5rem;">
+          {{ .weight }}
+        </div>
+        <h4 style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.35rem; line-height: 1.3;">
+          {{ .component }}
+        </h4>
+        <p style="font-size: 0.75rem; color: #8E95A0; line-height: 1.45;">
+          {{ .evidence }}
+        </p>
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Passing Standard Banner -->
+    <div style="max-width: 60rem; margin: 0 auto 3.5rem auto; padding: 1.25rem 1.75rem; border-radius: 1rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(16, 185, 129, 0.2); color: #10B981; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg style="width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <div>
+          <div style="font-size: 0.75rem; font-family: var(--font-mono); color: #10B981; text-transform: uppercase; font-weight: 700;">
+            Minimum Passing Threshold
+          </div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: #FFFFFF; margin-top: 0.15rem;">
+            {{ $framework.passingStandard }}
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size: 0.75rem; font-family: var(--font-mono); color: #A7F3D0;">
+        Mandatory practical submission required
+      </div>
+    </div>
+
+    <!-- 4 Certificate Tiers Showcase -->
+    <div style="max-width: 60rem; margin: 0 auto;">
+      <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin-bottom: 1.5rem; text-align: center;">
+        Progressive Certificate Pathways Across Modular Durations
+      </h3>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+        {{ range $framework.certificationMapping }}
+        <div class="dls-card-dark" style="padding: 1.75rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+              <span class="dls-badge dls-badge-sm dls-badge-silver" style="font-family: var(--font-mono);">
+                {{ .duration }}
+              </span>
+              <span style="font-size: 1.25rem;">🎓</span>
+            </div>
+
+            <h4 style="font-size: 1.1rem; font-weight: 800; color: #E6CA83; margin-bottom: 0.5rem; line-height: 1.3;">
+              {{ .certificate }}
+            </h4>
+          </div>
+
+          <div style="padding-top: 1rem; margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.75rem; color: #9CA3AF;">
+            <strong style="color: #D1D5DB;">Evaluation Criteria:</strong> {{ .evidence }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: Veteran Tech Mentors & Practitioners (#mentors) -->
+<section id="mentors" class="dls-section bg-dark-primary" style="border-bottom: 1px solid rgba(255,255,255,0.06);">
   <div class="container-dls">
     <div style="text-align: center; max-width: 44rem; margin: 0 auto 4rem auto; display: flex; flex-direction: column; gap: 1rem;">
       <div>
@@ -162,13 +420,13 @@
           Practitioner Faculty Model
         </span>
       </div>
-      <h2 class="dls-section-title">Learn from People Who Build in the Industry</h2>
+      <h2 class="dls-section-title">Learn from Engineers Who Build in Industry</h2>
       <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
-        Every mentor is a verified senior engineer with a minimum of 4 years of hands-on production software and AI experience.
+        Every mentor is a verified senior engineer with a minimum of 4 years of hands-on production software and infrastructure experience.
       </p>
     </div>
 
-    <!-- 3 Mentors Grid -->
+    <!-- Mentors Grid -->
     <div class="dls-grid-3">
       {{ range $home.mentors }}
       <div class="dls-card-dark" style="display: flex; flex-direction: column; justify-content: space-between;">
@@ -199,8 +457,8 @@
   </div>
 </section>
 
-<!-- Learner Tech Impact & Success Stories -->
-<section id="testimonials" class="dls-section" style="background: #14161A; border-top: 1px solid rgba(255,255,255,0.06);">
+<!-- SECTION 5: Learner Success Stories (#testimonials) -->
+<section id="testimonials" class="dls-section" style="background: #14161A; border-bottom: 1px solid rgba(255,255,255,0.06);">
   <div class="container-dls">
     <div style="text-align: center; max-width: 44rem; margin: 0 auto 4rem auto; display: flex; flex-direction: column; gap: 1rem;">
       <div>
@@ -210,7 +468,7 @@
       </div>
       <h2 class="dls-section-title">Built by NextGen Scholars</h2>
       <p style="font-size: 1rem; color: #8E95A0;">
-        From college students building production portfolios to developers architecting enterprise GenAI.
+        From college graduates building production portfolios to developers architecting enterprise solutions.
       </p>
     </div>
 
@@ -241,7 +499,7 @@
   </div>
 </section>
 
-<!-- Frequently Asked Questions -->
+<!-- SECTION 6: Frequently Asked Questions (#faqs) -->
 <section id="faqs" class="dls-section bg-dark-primary">
   <div class="container-dls">
     <div style="text-align: center; max-width: 44rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
@@ -250,11 +508,11 @@
       </div>
       <h2 class="dls-section-title">Frequently Asked Questions</h2>
       <p style="font-size: 1rem; color: #8E95A0;">
-        Transparent answers regarding our curriculum, live format, and project execution.
+        Answers regarding our 4 training programs, modular formats, daily schedules, and certification.
       </p>
     </div>
 
-    <div style="max-w: 48rem; margin: 0 auto; max-width: 48rem;">
+    <div style="max-width: 48rem; margin: 0 auto;">
       {{ range $i, $faq := $home.faqs }}
       <div class="accordion-item {{ if eq $i 0 }}open{{ end }}">
         <button type="button" class="accordion-header" onclick="toggleAccordion(this)">
@@ -279,24 +537,28 @@
   <div class="container-dls" style="position: relative; z-index: 2; text-align: center;">
     <div style="max-width: 48rem; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; align-items: center;">
       <div class="dls-badge dls-badge-silver">
-        Learn Today • Lead Tomorrow
+        NextGen Scholars • Learn Today • Lead Tomorrow
       </div>
 
       <h2 class="dls-section-title" style="font-size: clamp(2.25rem, 4vw, 3.25rem);">
-        Ready to Groom Your Skills & <span class="text-metallic-gold">Contribute to Modern Tech?</span>
+        Ready to Master Technology &amp; <span class="text-metallic-gold">Launch Your Engineering Career?</span>
       </h2>
 
-      <p style="font-size: 1.125rem; color: #C7C9CC; max-width: 36rem; line-height: 1.6;">
-        Step into a curriculum engineered for real software building. Master AI Engineering & Generative AI under experienced industry practitioners.
+      <p style="font-size: 1.125rem; color: #C7C9CC; max-width: 38rem; line-height: 1.6;">
+        Choose between Generative AI, QA Automation, Full Stack Development, or Cloud &amp; DevOps. Enroll today in the 1-Week, 2-Week, 1-Month, or 2-Month track.
       </p>
 
-      <div style="padding-top: 1rem;">
-        <button type="button" class="dls-btn dls-btn-lg dls-btn-gold" onclick="openEnrollModal('early-bird')">
-          <span>Enroll in NextGen Cohort (₹19,999)</span>
+      <div style="padding-top: 1rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+        <button type="button" class="dls-btn dls-btn-lg dls-btn-gold" onclick="openEnrollModal()">
+          <span>Enroll in Next Cohort</span>
           <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
           </svg>
         </button>
+
+        <a href="#programs" class="dls-btn dls-btn-lg dls-btn-secondary">
+          <span>Compare 4 Programs</span>
+        </a>
       </div>
     </div>
   </div>

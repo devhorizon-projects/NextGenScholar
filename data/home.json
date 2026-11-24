@@ -2,19 +2,62 @@
   "brand": {
     "name": "NextGen Scholars",
     "tagline": "Learn today • Lead tomorrow",
-    "subheading": "Grooming high-impact tech leaders through practical, project-driven learning, comprehensive skill grooming, and real-world tech contribution.",
+    "subheading": "Professional Technology Training Programs: Four industry-oriented online courses designed for freshers, graduates and college students. Online instructor-led training with hands-on labs and capstones.",
     "contactEmail": "contact@nextgenscholar.org",
     "headquarters": "Global Tech Hubs & Online"
   },
-  "course": {
-    "title": "AI Engineering & Generative AI",
-    "duration": "8 Weeks • 72 Planned Hours",
-    "level": "Beginner to Intermediate",
-    "description": "Master the engineering of foundation models, multi-agent workflows, Retrieval-Augmented Generation (RAG), and deploy enterprise-grade AI applications with guidance from experienced industry practitioners.",
-    "skills": ["Generative AI", "Python", "RAG Systems", "Vector Databases", "AI Agents", "FastAPI", "Evaluation", "Docker & Cloud MLOps"],
-    "keyOutcome": "Architect, build, and deploy an end-to-end production AI capstone project",
-    "link": "courses/ai-engineering-generative-ai/"
+  "hero": {
+    "titlePrefix": "Professional Technology",
+    "titleHighlight": "Training Programs",
+    "subtitle": "Four industry-oriented online courses for freshers and college students. Master Generative AI, QA Automation, Full Stack Development, or Cloud & DevOps across flexible 1-week, 2-week, 1-month, or 2-month modular formats.",
+    "badges": ["100% Online Instructor-Led", "1.5 or 2 Hours/Day", "Hands-on Guided Labs", "Verified Certificate"]
   },
+  "programsOverview": [
+    {
+      "number": "01",
+      "slug": "generative-ai-engineer",
+      "title": "Generative AI (GenAI) Engineer",
+      "badge": "PROGRAM 01",
+      "tagline": "Build practical AI applications using large language models, retrieval systems and agent workflows.",
+      "skills": ["LLMs & Prompts", "Python & Model APIs", "LangChain & LangGraph", "Vector DBs & RAG", "AI Agents & MCP", "FastAPI & Docker"],
+      "outcomes": "Explain GenAI concepts, design structured prompts, integrate model APIs, and build enterprise RAG pipelines with autonomous agents.",
+      "formats": "1 Week (7.5h/10h) • 2 Weeks (15h/20h) • 1 Month (30h/40h) • 2 Months (60h/80h)",
+      "link": "courses/generative-ai-engineer/"
+    },
+    {
+      "number": "02",
+      "slug": "qa-software-testing-automation",
+      "title": "QA & Software Test Automation",
+      "badge": "PROGRAM 02",
+      "tagline": "Design, automate and maintain reliable software tests across web applications and APIs.",
+      "skills": ["Manual Testing & STLC", "Python Automation", "Selenium & Playwright", "Pytest & POM", "Postman & REST API", "SQL & CI/CD"],
+      "outcomes": "Master SDLC/STLC, write robust test scenarios, automate browser flows, validate APIs and databases, and build CI/CD regression suites.",
+      "formats": "1 Week (7.5h/10h) • 2 Weeks (15h/20h) • 1 Month (30h/40h) • 2 Months (60h/80h)",
+      "link": "courses/qa-software-testing-automation/"
+    },
+    {
+      "number": "03",
+      "slug": "full-stack-software-development",
+      "title": "Full Stack Software Development",
+      "badge": "PROGRAM 03",
+      "tagline": "Design, build, test and deploy modern web applications from user interface to backend and database.",
+      "skills": ["HTML5 / CSS3 / Tailwind", "Modern JavaScript / TypeScript", "React Components & Hooks", "Node.js & Express APIs", "PostgreSQL & SQL", "Docker & Deployment"],
+      "outcomes": "Build responsive accessible web interfaces, implement scalable REST APIs, design relational PostgreSQL schemas, and deploy full-stack applications.",
+      "formats": "1 Week (7.5h/10h) • 2 Weeks (15h/20h) • 1 Month (30h/40h) • 2 Months (60h/80h)",
+      "link": "courses/full-stack-software-development/"
+    },
+    {
+      "number": "04",
+      "slug": "cloud-devops-engineering",
+      "title": "Cloud & DevOps Engineering",
+      "badge": "PROGRAM 04",
+      "tagline": "Automate software delivery and operate applications using Linux, CI/CD, containers, cloud and infrastructure tools.",
+      "skills": ["Linux & Bash Automation", "Git & GitHub Workflows", "Docker & Docker Compose", "CI/CD (Jenkins / Actions)", "Kubernetes & Helm", "AWS & Terraform IaC"],
+      "outcomes": "Administer Linux servers, build automated CI/CD pipelines, containerize microservices, provision cloud resources with Terraform, and monitor with Prometheus.",
+      "formats": "1 Week (7.5h/10h) • 2 Weeks (15h/20h) • 1 Month (30h/40h) • 2 Months (60h/80h)",
+      "link": "courses/cloud-devops-engineering/"
+    }
+  ],
   "mentors": [
     {
       "name": "Alex Rivera",

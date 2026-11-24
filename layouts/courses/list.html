@@ -1,0 +1,83 @@
+{{ define "main" }}
+{{ $programsData := index hugo.Data "programs" }}
+
+<section class="dls-section bg-dark-primary" style="padding-top: 7rem;">
+  <div class="container-dls">
+    <div style="text-align: center; max-width: 48rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
+      <div>
+        <span class="dls-badge dls-badge-silver">Program Catalog</span>
+      </div>
+      <h1 class="dls-section-title">Four Specialized Technology Programs</h1>
+      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
+        Designed for freshers, graduates and college students. Online instructor-led training with hands-on labs, guided assignments, and industry capstone projects across flexible 1-Week, 2-Weeks, 1-Month, or 2-Months tracks.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.75rem; max-width: 68rem; margin: 0 auto;">
+      {{ range $programsData.programs }}
+      <div class="dls-card-dark" style="display: flex; flex-direction: column; justify-content: space-between; border-radius: 1.25rem; padding: 2rem; border: 1px solid rgba(255,255,255,0.08); background: linear-gradient(180deg, #17191E 0%, #121316 100%);">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem;">
+            <span class="dls-badge dls-badge-sm" style="background: rgba(197, 162, 83, 0.12); color: #E6CA83; border: 1px solid rgba(197, 162, 83, 0.3);">
+              {{ .badge }}
+            </span>
+            <span style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 800; color: #4B525D;">
+              {{ .number }}
+            </span>
+          </div>
+
+          <h2 style="font-size: 1.35rem; font-weight: 800; color: #FFFFFF; line-height: 1.25; margin-bottom: 0.65rem;">
+            <a href="{{ printf "courses/%s/" .slug | relURL }}" style="color: #FFFFFF; text-decoration: none;">{{ .title }}</a>
+          </h2>
+          <p style="font-size: 0.875rem; color: #9CA3AF; line-height: 1.55; margin-bottom: 1.25rem;">
+            {{ .tagline }}
+          </p>
+
+          <div style="background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.05); border-radius: 0.75rem; padding: 1rem; margin-bottom: 1.25rem;">
+            <div style="font-size: 0.7rem; font-family: var(--font-mono); text-transform: uppercase; color: #E6CA83; font-weight: 700; margin-bottom: 0.5rem;">
+              Core Competencies:
+            </div>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.8125rem; color: #D1D5DB;">
+              {{ range first 3 .outcomes }}
+              <li style="display: flex; align-items: flex-start; gap: 0.45rem;">
+                <span style="color: #10B981; font-weight: 700;">✓</span>
+                <span style="line-height: 1.4;">{{ . }}</span>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+
+          <div style="display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.5rem;">
+            {{ range first 6 .tools }}
+            <span style="font-size: 0.6875rem; font-family: var(--font-mono); padding: 0.2rem 0.55rem; border-radius: 4px; background: rgba(255,255,255,0.04); color: #C5CBD3; border: 1px solid rgba(255,255,255,0.06);">
+              {{ . }}
+            </span>
+            {{ end }}
+          </div>
+        </div>
+
+        <div>
+          <div style="padding: 0.65rem 0.85rem; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; font-family: var(--font-mono); color: #9CA3AF; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+            <span>Tracks:</span>
+            <span style="color: #E6CA83; font-weight: 600;">1W • 2W • 1M • 2M</span>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="{{ printf "courses/%s/" .slug | relURL }}" class="dls-btn dls-btn-gold" style="flex: 1; justify-content: center; font-size: 0.875rem;">
+              <span>View Curriculum</span>
+              <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+              </svg>
+            </a>
+
+            <button type="button" class="dls-btn dls-btn-secondary" style="font-size: 0.8125rem; padding: 0.5rem 0.85rem;" onclick="openEnrollModalWithProgram('{{ .id }}')">
+              Enroll
+            </button>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

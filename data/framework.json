@@ -1,0 +1,51 @@
+{
+  "title": "Program Framework & Delivery Model",
+  "subtitle": "Modular instructor-led technology training designed for college students and freshers",
+  "audience": {
+    "target": "Freshers, graduates and college students",
+    "mode": "Online instructor-led sessions with demonstrations, guided labs, assignments and doubt-clearing",
+    "entryLevel": "Beginner-friendly; no professional experience required",
+    "learningApproach": "Concepts → Demonstration → Hands-on Practice → Assignment → Project"
+  },
+  "contactHours": [
+    { "length": "1 Week", "days": 5, "format90": "7.5 hours", "format120": "10 hours", "cert": "Technology Foundation Certificate" },
+    { "length": "2 Weeks", "days": 10, "format90": "15 hours", "format120": "20 hours", "cert": "Applied Technology Certificate" },
+    { "length": "1 Month", "days": 20, "format90": "30 hours", "format120": "40 hours", "cert": "Professional Skills Certificate" },
+    { "length": "2 Months", "days": 40, "format90": "60 hours", "format120": "80 hours", "cert": "Industry Project Certificate" }
+  ],
+  "dailyFormats": {
+    "format90": {
+      "total": "90 Minutes",
+      "breakdown": [
+        { "component": "Concepts and Instruction", "duration": "30 min", "desc": "Core theoretical foundations, architecture and syntax" },
+        { "component": "Live Demonstration", "duration": "20 min", "desc": "Instructor-led walkthrough of working code and tools" },
+        { "component": "Hands-on Practical", "duration": "30 min", "desc": "Active student coding, guided exercises and debugging" },
+        { "component": "Doubt Clearing and Recap", "duration": "10 min", "desc": "Q&A, troubleshooting, daily recap and assignment briefing" }
+      ]
+    },
+    "format120": {
+      "total": "120 Minutes",
+      "breakdown": [
+        { "component": "Concepts and Instruction", "duration": "35 min", "desc": "In-depth concept explanation, patterns and industry context" },
+        { "component": "Live Demonstration", "duration": "25 min", "desc": "Comprehensive live build and tool execution" },
+        { "component": "Hands-on Practical", "duration": "45 min", "desc": "Extended lab time for multi-step tasks and mini-projects" },
+        { "component": "Doubt Clearing and Recap", "duration": "15 min", "desc": "Live Q&A, code reviews, retrospective and homework setup" }
+      ]
+    }
+  },
+  "assessmentWeightage": [
+    { "component": "Technical Knowledge Assessment", "weight": "20%", "evidence": "Quiz, concepts and short-answer assessment" },
+    { "component": "Practical Assignments", "weight": "20%", "evidence": "Lab tasks, scripts, code or test artefacts" },
+    { "component": "Mini Project", "weight": "20%", "evidence": "Working implementation and brief documentation" },
+    { "component": "Final Capstone Project", "weight": "30%", "evidence": "Project quality, functionality and technical decisions" },
+    { "component": "Technical Presentation", "weight": "10%", "evidence": "Live demo, architecture explanation and Q&A defense" }
+  ],
+  "passingStandard": "70% overall, subject to successful completion of mandatory practical and project components.",
+  "certificationMapping": [
+    { "duration": "1 Week", "certificate": "Technology Foundation Certificate", "evidence": "Attendance, knowledge check and mini exercise" },
+    { "duration": "2 Weeks", "certificate": "Applied Technology Certificate", "evidence": "Practical tasks and assessed mini project" },
+    { "duration": "1 Month", "certificate": "Professional Skills Certificate", "evidence": "Module assessments and completed project" },
+    { "duration": "2 Months", "certificate": "Industry Project Certificate", "evidence": "Capstone, technical presentation and final assessment" }
+  ]
+}
+

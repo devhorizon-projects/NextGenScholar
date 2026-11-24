@@ -1,7 +1,10 @@
 ---
-title: "AI Engineering & Generative AI"
+title: "Generative AI (GenAI) Engineer"
 slug: "ai-engineering-generative-ai"
-description: "Master practical AI Engineering & Generative AI. 72 hours of structured, industry-led training to build and deploy production-ready applications."
+program_id: "generative-ai-engineer"
+description: "Build practical AI applications using large language models, retrieval systems and agent workflows. Modular 1 week to 2 months instructor-led training."
 layout: "single"
 type: "courses"
+aliases:
+  - "/courses/generative-ai-engineer/"
 ---
