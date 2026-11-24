@@ -1,0 +1,458 @@
+{
+  "programs": [
+    {
+      "id": "generative-ai-engineer",
+      "number": "01",
+      "slug": "generative-ai-engineer",
+      "title": "Generative AI (GenAI) Engineer",
+      "badge": "PROGRAM 01",
+      "tagline": "Build practical AI applications using large language models, retrieval systems and agent workflows.",
+      "headline": "Don't Just Use AI. Learn to Engineer It.",
+      "prerequisites": "No prior AI experience required. Python is introduced in the longer tracks.",
+      "icon": "cpu",
+      "color": "#E6CA83",
+      "outcomes": [
+        "Explain GenAI, LLMs, tokens, context windows and common use cases.",
+        "Design effective prompts and structured outputs.",
+        "Integrate model APIs and build AI-enabled application features.",
+        "Develop basic retrieval-augmented generation (RAG) and agent workflows in longer tracks."
+      ],
+      "tools": [
+        "Python", "OpenAI / Gemini APIs", "LangChain", "LangGraph", "FastAPI", "ChromaDB / FAISS", "Docker", "Git/GitHub", "Model Context Protocol (MCP)"
+      ],
+      "assignments": [
+        "Prompt-powered personal productivity tool or custom assistant",
+        "Document Q&A assistant using semantic search and basic RAG",
+        "AI customer support assistant with function calling and API integration",
+        "Advanced Capstone: Multi-agent research or operational assistant with memory, tools and web UI"
+      ],
+      "tracks": [
+        {
+          "duration": "1 Week",
+          "tierName": "Foundation Track",
+          "certificate": "Technology Foundation Certificate",
+          "days": 5,
+          "hours90": "7.5 hrs",
+          "hours120": "10 hrs",
+          "summary": "AI fundamentals, prompt engineering, context design and hands-on AI productivity tools.",
+          "syllabus": [
+            "AI and generative AI fundamentals; LLMs and real-world use cases",
+            "Prompt engineering, context design and structured outputs",
+            "Responsible AI, limitations, privacy and verification",
+            "Hands-on with ChatGPT, Gemini and AI productivity tools",
+            "Mini project: prompt-powered assistant or automated workflow"
+          ],
+          "milestoneProject": "Prompt-powered assistant or automated productivity workflow"
+        },
+        {
+          "duration": "2 Weeks",
+          "tierName": "Applied Track",
+          "certificate": "Applied Technology Certificate",
+          "days": 10,
+          "hours90": "15 hrs",
+          "hours120": "20 hrs",
+          "summary": "Python essentials, working with LLM APIs, function calling, embeddings and introductory RAG.",
+          "syllabus": [
+            "All 1-week foundations",
+            "Python essentials: variables, functions, data structures and packages",
+            "Working with model APIs, HTTP requests, JSON and secure API keys",
+            "Prompt templates, structured responses and tool/function calling",
+            "Embeddings and vector search concepts; introduction to RAG",
+            "Mini project: document Q&A or knowledge assistant"
+          ],
+          "milestoneProject": "Document Q&A knowledge assistant with semantic vector search"
+        },
+        {
+          "duration": "1 Month",
+          "tierName": "Professional Track",
+          "certificate": "Professional Skills Certificate",
+          "days": 20,
+          "hours90": "30 hrs",
+          "hours120": "40 hrs",
+          "summary": "LangChain, Vector DBs, full RAG pipeline, FastAPI backend, testing and deployment fundamentals.",
+          "syllabus": [
+            "Python for AI development and virtual environment setup",
+            "AI/ML/NLP and LLM concepts; tokens, context windows and model selection",
+            "Prompt engineering, evaluation benchmarks and structured outputs",
+            "LLM API integration, token streaming and function calling",
+            "LangChain fundamentals and reusable chain orchestration",
+            "Embeddings, vector databases and retrieval workflows",
+            "RAG pipeline: ingestion, chunking, retrieval and response generation",
+            "FastAPI basics and connecting an AI backend to a modern interface",
+            "Testing, safety, privacy, cost awareness and deployment fundamentals",
+            "Capstone: document intelligence or customer-support assistant"
+          ],
+          "milestoneProject": "Production-ready Document Intelligence or Support Assistant with FastAPI backend"
+        },
+        {
+          "duration": "2 Months",
+          "tierName": "Advanced Industry Track",
+          "certificate": "Industry Project Certificate",
+          "days": 40,
+          "hours90": "60 hrs",
+          "hours120": "80 hrs",
+          "summary": "LangGraph stateful workflows, autonomous AI agents, MCP tooling, evaluation, Docker and cloud deployment.",
+          "syllabus": [
+            "Python foundations, Git/GitHub and professional development environment",
+            "AI/ML/NLP foundations; LLM architecture, tokens and model selection",
+            "Prompt engineering, system instructions and structured outputs",
+            "LLM APIs, streaming, tool calling and robust error handling",
+            "LangChain components, memory patterns and orchestration",
+            "Embeddings, vector databases, indexing and semantic search",
+            "RAG architecture, chunking, retrieval and reranking concepts",
+            "LangGraph fundamentals, stateful workflows and agent patterns",
+            "AI agents, tools, function calling and multi-step task execution",
+            "Model Context Protocol (MCP) fundamentals and connecting tools/data sources safely",
+            "FastAPI, frontend integration and scalable application architecture",
+            "Evaluation, hallucination checks, security, privacy and observability",
+            "Docker, cloud deployment, monitoring and token cost optimization",
+            "Capstone build, comprehensive documentation, demo and technical defense"
+          ],
+          "milestoneProject": "Advanced Capstone: Autonomous Multi-Agent System with MCP Tools & Production Observability"
+        }
+      ]
+    },
+    {
+      "id": "qa-software-testing-automation",
+      "number": "02",
+      "slug": "qa-software-testing-automation",
+      "title": "QA & Software Test Automation Engineer",
+      "badge": "PROGRAM 02",
+      "tagline": "Design, automate and maintain reliable software tests across web applications and APIs.",
+      "headline": "Build Rock-Solid Software. Master Automation Testing.",
+      "prerequisites": "No professional testing experience required. Basic computer skills and willingness to learn programming are expected.",
+      "icon": "shield-check",
+      "color": "#10B981",
+      "outcomes": [
+        "Understand SDLC/STLC and testing fundamentals.",
+        "Write test scenarios, test cases and clear defect reports.",
+        "Automate browser workflows and validate APIs and databases.",
+        "Build a reusable automation framework with CI integration in the longer tracks."
+      ],
+      "tools": [
+        "Python", "Selenium WebDriver", "Playwright", "Pytest", "Postman", "SQL", "Git/GitHub", "Jenkins / GitHub Actions"
+      ],
+      "assignments": [
+        "Automated login, search and checkout test suite",
+        "API validation suite for a sample REST microservice",
+        "Database-backed test data validation and fixture setup",
+        "Advanced Capstone: Reusable web/API regression framework integrated with CI"
+      ],
+      "tracks": [
+        {
+          "duration": "1 Week",
+          "tierName": "Foundation Track",
+          "certificate": "Technology Foundation Certificate",
+          "days": 5,
+          "hours90": "7.5 hrs",
+          "hours120": "10 hrs",
+          "summary": "SDLC/STLC fundamentals, testing levels, test cases, bug reporting and introduction to automation.",
+          "syllabus": [
+            "Software development life cycle (SDLC) and testing life cycle (STLC)",
+            "Testing levels, test types and defect life cycle",
+            "Test scenarios, test cases and bug reports",
+            "Manual testing of a sample web application",
+            "Introduction to automation and Selenium; mini test exercise"
+          ],
+          "milestoneProject": "Manual test suite and basic Selenium automation script on a live demo app"
+        },
+        {
+          "duration": "2 Weeks",
+          "tierName": "Applied Track",
+          "certificate": "Applied Technology Certificate",
+          "days": 10,
+          "hours90": "15 hrs",
+          "hours120": "20 hrs",
+          "summary": "Python for test automation, WebDriver control, XPath/CSS locators, waits and assertions.",
+          "syllabus": [
+            "All 1-week testing foundations",
+            "Python basics for test automation",
+            "WebDriver setup, browser control and page navigation",
+            "Locators, XPath/CSS selectors and web element interactions",
+            "Explicit/implicit waits, assertions, alerts and common browser actions",
+            "Mini project: automate a basic login and checkout flow"
+          ],
+          "milestoneProject": "End-to-end automated login, navigation and checkout test suite"
+        },
+        {
+          "duration": "1 Month",
+          "tierName": "Professional Track",
+          "certificate": "Professional Skills Certificate",
+          "days": 20,
+          "hours90": "30 hrs",
+          "hours120": "40 hrs",
+          "summary": "Playwright, Pytest fixtures, Page Object Model, API testing with Postman, SQL data validation.",
+          "syllabus": [
+            "SDLC, STLC, test strategy and test documentation",
+            "Manual testing: functional, regression, smoke and exploratory testing",
+            "Python fundamentals for test automation",
+            "Selenium WebDriver: setup, locators, waits and interactions",
+            "Playwright introduction and modern browser automation concepts",
+            "Pytest, fixtures, assertions and test organization",
+            "Page Object Model (POM) and reusable automation design",
+            "API testing with Postman; HTTP methods, status codes and assertions",
+            "SQL basics for data validation; Git and GitHub workflows",
+            "Mini capstone: maintainable web and API test suite"
+          ],
+          "milestoneProject": "Maintainable Web & API Test Suite with Page Object Model and SQL data validation"
+        },
+        {
+          "duration": "2 Months",
+          "tierName": "Advanced Industry Track",
+          "certificate": "Industry Project Certificate",
+          "days": 40,
+          "hours90": "60 hrs",
+          "hours120": "80 hrs",
+          "summary": "Full framework architecture, cross-browser Playwright, API automation, CI/CD pipelines and AI-assisted testing.",
+          "syllabus": [
+            "Testing foundations, SDLC/STLC, test planning and defect reporting",
+            "Test design techniques, boundary values, equivalence classes and exploratory testing",
+            "Python for automation: functions, collections, OOP and exception handling",
+            "Selenium WebDriver: locators, waits, windows, frames and advanced interactions",
+            "Pytest: fixtures, parametrization, markers and custom reporting",
+            "Page Object Model, data-driven testing and framework architecture",
+            "Playwright: browser contexts, selectors, waits and cross-browser execution",
+            "API testing: Postman collections, environments and automated assertions",
+            "API automation with Python requests/Pytest or REST Assured introduction",
+            "SQL and database validation; test data setup and cleanup",
+            "Git workflows, branching and collaborative test development",
+            "CI/CD integration using Jenkins or GitHub Actions",
+            "Test reporting, debugging, flaky test management and parallel execution",
+            "AI-assisted test design and test generation with human review",
+            "Capstone: end-to-end web and API automation framework with CI pipeline"
+          ],
+          "milestoneProject": "Production-Grade Reusable Web & API Regression Framework with GitHub Actions CI/CD"
+        }
+      ]
+    },
+    {
+      "id": "full-stack-software-development",
+      "number": "03",
+      "slug": "full-stack-software-development",
+      "title": "Full Stack Software Development Engineer",
+      "badge": "PROGRAM 03",
+      "tagline": "Design, build, test and deploy modern web applications from user interface to backend and database.",
+      "headline": "From Zero to Full Stack. Build Production Web Apps.",
+      "prerequisites": "No prior development experience required. Logical thinking and regular coding practice are important.",
+      "icon": "code-bracket",
+      "color": "#3B82F6",
+      "outcomes": [
+        "Build responsive web interfaces using modern frontend technologies.",
+        "Create backend services and connect them to databases.",
+        "Use version control, testing and deployment workflows.",
+        "Deliver a full-stack application in the longer tracks."
+      ],
+      "tools": [
+        "HTML5 / CSS3", "JavaScript ES6+", "TypeScript", "React", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Git/GitHub", "Docker", "Postman"
+      ],
+      "assignments": [
+        "Responsive portfolio or product landing page with accessible design",
+        "Interactive React application consuming public or internal REST APIs",
+        "Full-stack student or inventory management CRUD system",
+        "Advanced Capstone: Recruitment portal, e-commerce application or SaaS platform"
+      ],
+      "tracks": [
+        {
+          "duration": "1 Week",
+          "tierName": "Foundation Track",
+          "certificate": "Technology Foundation Certificate",
+          "days": 5,
+          "hours90": "7.5 hrs",
+          "hours120": "10 hrs",
+          "summary": "How the web works, HTML5 semantic structure, CSS styling, responsive layout, JavaScript DOM basics.",
+          "syllabus": [
+            "How the web works; HTTP, browser rendering and HTML structure",
+            "CSS styling, layout, responsive design and basic accessibility",
+            "JavaScript fundamentals and DOM interaction",
+            "Git/GitHub basics and developer workflow",
+            "Mini project: responsive multi-page website"
+          ],
+          "milestoneProject": "Responsive Multi-Page Website hosted on GitHub Pages"
+        },
+        {
+          "duration": "2 Weeks",
+          "tierName": "Applied Track",
+          "certificate": "Applied Technology Certificate",
+          "days": 10,
+          "hours90": "15 hrs",
+          "hours120": "20 hrs",
+          "summary": "Modern ES6+ JavaScript, DOM events, React components, props, hooks, state and consuming REST APIs.",
+          "syllabus": [
+            "All 1-week web foundations",
+            "Modern JavaScript: ES6+, arrays, objects, promises and functions",
+            "DOM events, form handling and browser debugging tools",
+            "React fundamentals: components, props, state and hooks",
+            "Consuming REST APIs and handling loading/error states",
+            "Mini project: interactive React application"
+          ],
+          "milestoneProject": "Interactive React Application integrated with live REST APIs"
+        },
+        {
+          "duration": "1 Month",
+          "tierName": "Professional Track",
+          "certificate": "Professional Skills Certificate",
+          "days": 20,
+          "hours90": "30 hrs",
+          "hours120": "40 hrs",
+          "summary": "TypeScript, Tailwind CSS, Node.js, Express, PostgreSQL, schema design, authentication and full-stack CRUD.",
+          "syllabus": [
+            "HTML5, semantic markup, forms and accessibility basics",
+            "CSS3, Flexbox, Grid and responsive layouts with Tailwind CSS",
+            "JavaScript fundamentals, ES6+, DOM and asynchronous programming",
+            "TypeScript fundamentals and type-safe development",
+            "React components, props, state, hooks and client-side routing",
+            "Node.js and Express backend fundamentals",
+            "REST API design, request validation and structured error handling",
+            "PostgreSQL basics, relational schema design and SQL queries",
+            "Authentication fundamentals, Git workflow, testing and deployment",
+            "Capstone: full-stack CRUD application with authentication"
+          ],
+          "milestoneProject": "Full-Stack CRUD Application with User Authentication & PostgreSQL database"
+        },
+        {
+          "duration": "2 Months",
+          "tierName": "Advanced Industry Track",
+          "certificate": "Industry Project Certificate",
+          "days": 40,
+          "hours90": "60 hrs",
+          "hours120": "80 hrs",
+          "summary": "Complete enterprise web architecture, TypeScript, state management, JWT auth, migrations, Docker & cloud deployment.",
+          "syllabus": [
+            "Web architecture, HTTP, browser tools and professional development workflow",
+            "HTML5, semantic structure, accessible forms and WCAG guidelines",
+            "CSS, responsive design, Flexbox, Grid and Tailwind CSS component systems",
+            "JavaScript ES6+, DOM, events, promises, async/await and modules",
+            "TypeScript: types, interfaces, generics and strict type-checking",
+            "React: custom hooks, routing, complex forms and state management",
+            "Frontend API integration, caching, optimistic updates and error handling",
+            "Node.js, Express, middleware architecture and clean service layers",
+            "REST API design, JWT authentication, role-based authorization",
+            "PostgreSQL, relational modelling, table joins, indexes and schema migrations",
+            "Testing fundamentals: unit testing, integration tests and API testing",
+            "Git/GitHub collaboration, pull request reviews and clean code standards",
+            "Security basics (CORS, CSRF, XSS, hashing), performance optimization",
+            "Docker containerization fundamentals and cloud deployment introduction",
+            "Capstone: full-stack business application, documentation and demo"
+          ],
+          "milestoneProject": "Advanced Capstone: Production SaaS Platform / E-Commerce Application with Docker deployment"
+        }
+      ]
+    },
+    {
+      "id": "cloud-devops-engineering",
+      "number": "04",
+      "slug": "cloud-devops-engineering",
+      "title": "Cloud & DevOps Engineer",
+      "badge": "PROGRAM 04",
+      "tagline": "Automate software delivery and operate applications using Linux, CI/CD, containers, cloud and infrastructure tools.",
+      "headline": "Ship Faster, Scale Safer. Master Cloud & DevOps.",
+      "prerequisites": "No prior DevOps experience required. Basic computer skills are expected; familiarity with programming is helpful but not mandatory.",
+      "icon": "cloud",
+      "color": "#8B5CF6",
+      "outcomes": [
+        "Use Linux, networking and Git fundamentals in a development workflow.",
+        "Build CI/CD pipelines and containerize applications.",
+        "Understand cloud deployment and infrastructure automation.",
+        "Deploy and monitor applications using cloud and DevOps tools in the longer tracks."
+      ],
+      "tools": [
+        "Linux", "Bash", "Git/GitHub", "Jenkins", "GitHub Actions", "Docker", "Kubernetes", "AWS (EC2, S3, VPC)", "Terraform", "Ansible", "Prometheus & Grafana"
+      ],
+      "assignments": [
+        "Linux administration and Bash automation scripts",
+        "CI automated pipeline for a containerized application",
+        "Multi-service Dockerized full-stack architecture with Compose",
+        "Advanced Capstone: Cloud deployment with CI/CD, Infrastructure as Code and Prometheus monitoring"
+      ],
+      "tracks": [
+        {
+          "duration": "1 Week",
+          "tierName": "Foundation Track",
+          "certificate": "Technology Foundation Certificate",
+          "days": 5,
+          "hours90": "7.5 hrs",
+          "hours120": "10 hrs",
+          "summary": "DevOps culture, SDLC, Linux terminal, commands, permissions, networking fundamentals, Git basics.",
+          "syllabus": [
+            "DevOps culture, SDLC and delivery pipeline overview",
+            "Linux terminal, files, permissions and essential administration commands",
+            "Networking fundamentals: IP, DNS, HTTP/HTTPS and SSH",
+            "Git and GitHub fundamentals",
+            "Introduction to cloud and CI/CD; simple workflow demonstration"
+          ],
+          "milestoneProject": "Automated Linux environment configuration and Git-driven workflow"
+        },
+        {
+          "duration": "2 Weeks",
+          "tierName": "Applied Track",
+          "certificate": "Applied Technology Certificate",
+          "days": 10,
+          "hours90": "15 hrs",
+          "hours120": "20 hrs",
+          "summary": "Bash scripting automation, Git branching, Jenkins pipelines, Docker images and container management.",
+          "syllabus": [
+            "All 1-week DevOps foundations",
+            "Bash scripting basics and operational task automation",
+            "Git branching strategies and collaborative workflows",
+            "Jenkins fundamentals and automated pipeline concepts",
+            "Docker images, containers and essential CLI commands",
+            "Mini project: containerize a simple application and run a basic pipeline"
+          ],
+          "milestoneProject": "Containerized application deployment with automated build pipeline"
+        },
+        {
+          "duration": "1 Month",
+          "tierName": "Professional Track",
+          "certificate": "Professional Skills Certificate",
+          "days": 20,
+          "hours90": "30 hrs",
+          "hours120": "40 hrs",
+          "summary": "Linux admin, networking, GitHub Actions, Docker Compose, AWS compute/storage/IAM, and logging.",
+          "syllabus": [
+            "DevOps principles, SDLC and CI/CD lifecycle",
+            "Linux administration, users, permissions and systemd services",
+            "Networking: DNS, HTTP/HTTPS, ports, firewalls and SSH keys",
+            "Bash scripting and operational automation",
+            "Git, GitHub and release branching workflows",
+            "Jenkins and GitHub Actions automated build pipelines",
+            "Docker images, multi-stage builds, volumes and networks",
+            "Docker Compose for multi-service application orchestration",
+            "AWS fundamentals: compute (EC2), storage (S3), networking (VPC) and IAM",
+            "Deployment basics, container logs, monitoring and troubleshooting",
+            "Capstone: build and run a basic CI/CD deployment pipeline"
+          ],
+          "milestoneProject": "Multi-container Application Deployment on AWS with Automated CI/CD Pipeline"
+        },
+        {
+          "duration": "2 Months",
+          "tierName": "Advanced Industry Track",
+          "certificate": "Industry Project Certificate",
+          "days": 40,
+          "hours90": "60 hrs",
+          "hours120": "80 hrs",
+          "summary": "Kubernetes clusters, Helm, Terraform IaC, Ansible, Prometheus/Grafana observability, DevSecOps.",
+          "syllabus": [
+            "DevOps culture, delivery lifecycle and release deployment strategies",
+            "Linux administration, processes, services, permissions and audit logs",
+            "Networking, DNS, TLS certificates, ports, firewalls and SSH hardening",
+            "Bash scripting and operational infrastructure automation",
+            "Git, GitHub, branching strategies, pull requests and code review",
+            "CI/CD pipelines using Jenkins and GitHub Actions workflows",
+            "Dockerfiles, container security, volumes and advanced networking",
+            "Docker Compose and multi-container architectures",
+            "Kubernetes architecture: pods, deployments, services and ConfigMaps",
+            "Kubernetes workloads, horizontal scaling, persistent storage and Helm charts",
+            "AWS cloud architecture: IAM, EC2, S3, VPC, security groups and RDS",
+            "Infrastructure as Code (IaC) with Terraform: providers, state and modules",
+            "Ansible fundamentals and automated configuration management",
+            "Monitoring and observability with Prometheus metrics and Grafana dashboards",
+            "DevSecOps basics: secret management, image scanning and least privilege",
+            "Capstone: provision, deploy and monitor a containerized application"
+          ],
+          "milestoneProject": "End-to-End Enterprise Cloud Platform: Terraform Provisioning, Kubernetes Deployment & Grafana Observability"
+        }
+      ]
+    }
+  ]
+}
+

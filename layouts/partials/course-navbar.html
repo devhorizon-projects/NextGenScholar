@@ -7,7 +7,7 @@
           <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"></path>
           </svg>
-          <span>All Programs</span>
+          <span>All 4 Programs</span>
         </a>
 
         <a href="{{ "" | relURL }}" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
@@ -16,23 +16,23 @@
         </a>
 
         <span class="dls-badge dls-badge-sm dls-badge-silver hidden-mobile">
-          AI Track
+          {{ .Title }}
         </span>
       </div>
 
       <!-- Center Links -->
       <ul class="dls-nav-links">
-        <li><a href="#why-this-course" class="dls-nav-link">Overview</a></li>
-        <li><a href="#audience" class="dls-nav-link">Audience</a></li>
-        <li><a href="#curriculum" class="dls-nav-link">Curriculum (72h)</a></li>
-        <li><a href="#pricing" class="dls-nav-link" style="color: #E6CA83; font-weight: 700;">Pricing</a></li>
-        <li><a href="#faqs" class="dls-nav-link">FAQs</a></li>
+        <li><a href="#outcomes" class="dls-nav-link">Outcomes</a></li>
+        <li><a href="#tracks" class="dls-nav-link" style="color: #E6CA83; font-weight: 700;">Modular Tracks</a></li>
+        <li><a href="#assignments" class="dls-nav-link">Projects</a></li>
+        <li><a href="#tools" class="dls-nav-link">Tools</a></li>
+        <li><a href="#assessment" class="dls-nav-link">Assessment</a></li>
       </ul>
 
       <!-- Right Action -->
       <div style="display: flex; align-items: center; gap: 0.75rem;">
-        <button type="button" class="dls-btn dls-btn-sm dls-btn-gold" onclick="openEnrollModal('early-bird')">
-          <span>Enroll Now</span>
+        <button type="button" class="dls-btn dls-btn-sm dls-btn-gold" onclick="openEnrollModalWithProgram('{{ .Params.program_id }}')">
+          <span>Enroll</span>
           <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
           </svg>
@@ -50,14 +50,14 @@
   <!-- Mobile Drawer -->
   <div id="courseMobileMenu" style="display: none; padding: 1.5rem; background: #16181C; border-top: 1px solid rgba(255,255,255,0.1); flex-direction: column; gap: 1rem;">
     <a href="{{ "" | relURL }}" class="dls-nav-link" style="color: #E6CA83;">← Return to Main Website</a>
-    <a href="#why-this-course" class="dls-nav-link" onclick="closeCourseMobileMenu()">Overview</a>
-    <a href="#audience" class="dls-nav-link" onclick="closeCourseMobileMenu()">Audience</a>
-    <a href="#curriculum" class="dls-nav-link" onclick="closeCourseMobileMenu()">Curriculum (72h)</a>
-    <a href="#pricing" class="dls-nav-link" style="color: #E6CA83; font-weight: 700;" onclick="closeCourseMobileMenu()">Pricing & Fees</a>
-    <a href="#faqs" class="dls-nav-link" onclick="closeCourseMobileMenu()">FAQs</a>
+    <a href="#outcomes" class="dls-nav-link" onclick="closeCourseMobileMenu()">Outcomes</a>
+    <a href="#tracks" class="dls-nav-link" style="color: #E6CA83; font-weight: 700;" onclick="closeCourseMobileMenu()">Modular Tracks (1W • 2W • 1M • 2M)</a>
+    <a href="#assignments" class="dls-nav-link" onclick="closeCourseMobileMenu()">Projects &amp; Capstones</a>
+    <a href="#tools" class="dls-nav-link" onclick="closeCourseMobileMenu()">Tools &amp; Tech</a>
+    <a href="#assessment" class="dls-nav-link" onclick="closeCourseMobileMenu()">Assessment Matrix</a>
     <div style="padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1);">
-      <button type="button" class="dls-btn dls-btn-gold" style="width: 100%; justify-content: center;" onclick="closeCourseMobileMenu(); openEnrollModal('early-bird');">
-        Enroll Now
+      <button type="button" class="dls-btn dls-btn-gold" style="width: 100%; justify-content: center;" onclick="closeCourseMobileMenu(); openEnrollModalWithProgram('{{ .Params.program_id }}');">
+        Enroll in {{ .Title }}
       </button>
     </div>
   </div>
