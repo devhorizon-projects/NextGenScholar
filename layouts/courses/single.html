@@ -5,405 +5,453 @@
 {{ define "main" }}
 {{ $progId := .Params.program_id | default .Params.slug | default "generative-ai-engineer" }}
 {{ $program := dict }}
-{{ range hugo.Data.programs.programs }}
+{{ range site.Data.programs.programs }}
   {{ if eq .id $progId }}
     {{ $program = . }}
   {{ end }}
 {{ end }}
-{{ $framework := index hugo.Data "framework" }}
+{{ $framework := index site.Data "framework" }}
 
-<!-- Hero Section -->
-<section style="position: relative; padding: 7rem 0 5rem 0; overflow: hidden; background: #111214; border-bottom: 1px solid rgba(255,255,255,0.08);">
-  <!-- Glows -->
-  <div class="glow-gold" style="top: 0; left: 50%; transform: translateX(-50%); width: 750px; height: 380px;"></div>
-  <div style="position: absolute; inset: 0;" class="bg-mesh-grid pointer-events-none"></div>
+<div class="course-doc-wrapper">
+  <div class="doc-container">
 
-  <div class="container-dls" style="position: relative; z-index: 2;">
-    <div style="max-width: 54rem; margin: 0 auto; text-align: center; display: flex; flex-direction: column; gap: 1.5rem;">
-      <!-- Status Badge -->
-      <div>
-        <div class="dls-badge dls-badge-silver" style="gap: 0.6rem;">
-          <span class="dls-dot" style="background: #10B981;"></span>
-          <span style="font-family: var(--font-mono);">Online Instructor-Led • Open for Enrollment</span>
+    <!-- Document Masthead / Header -->
+    <header class="doc-masthead">
+      <div class="doc-masthead-top">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <span class="doc-code-badge">{{ $program.badge }} • SPEC-{{ $program.number }}</span>
+          <span class="doc-status-badge">
+            <span class="doc-status-dot"></span>
+            Online Instructor-Led • 2026 Admissions Open
+          </span>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #8E95A0;">
+          Curriculum Specification Sheet
         </div>
       </div>
 
-      <div style="font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 700; color: #E6CA83; text-transform: uppercase; letter-spacing: 0.15em;">
-        {{ $program.badge }} • {{ $program.title }}
+      <h1 class="doc-title">{{ $program.title }}</h1>
+      <p class="doc-lead">{{ $program.headline }} — {{ $program.tagline }}</p>
+
+      <!-- Document Specification Matrix -->
+      <div class="doc-spec-grid">
+        <div class="doc-spec-item">
+          <div class="doc-spec-label">Target Audience</div>
+          <div class="doc-spec-value">Freshers, Undergraduates &amp; Graduates</div>
+        </div>
+        <div class="doc-spec-item">
+          <div class="doc-spec-label">Prerequisites</div>
+          <div class="doc-spec-value">{{ $program.prerequisites }}</div>
+        </div>
+        <div class="doc-spec-item">
+          <div class="doc-spec-label">Delivery Format</div>
+          <div class="doc-spec-value">100% Online • Live Coding Labs &amp; Q&amp;A</div>
+        </div>
+        <div class="doc-spec-item">
+          <div class="doc-spec-label">Track Options</div>
+          <div class="doc-spec-value">1 Week • 2 Weeks • 1 Month • 2 Months</div>
+        </div>
+        <div class="doc-spec-item">
+          <div class="doc-spec-label">Daily Pacing</div>
+          <div class="doc-spec-value">1.5h Standard or 2.0h Extended Lab / Day</div>
+        </div>
+        <div class="doc-spec-item">
+          <div class="doc-spec-label">Credential Awarded</div>
+          <div class="doc-spec-value">Verified NextGen Scholars Certificate</div>
+        </div>
       </div>
 
-      <!-- Main Headline -->
-      <h1 class="dls-display-title">
-        {{ $program.headline }}
-      </h1>
-
-      <!-- Supporting Text -->
-      <p style="font-size: 1.125rem; color: #D4D8DE; max-width: 44rem; margin: 0 auto; line-height: 1.7; font-weight: 300;">
-        {{ $program.tagline }}
-      </p>
-
-      <!-- Metadata Pills Strip -->
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; font-size: 0.75rem; font-family: var(--font-mono); color: #C7C9CC;">
-        <span style="padding: 0.35rem 0.75rem; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-          🎯 Audience: Freshers, Graduates &amp; Students
-        </span>
-        <span style="padding: 0.35rem 0.75rem; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-          ⏱️ 1.5h or 2.0h / Day Options
-        </span>
-        <span style="padding: 0.35rem 0.75rem; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-          📅 Tracks: 1W • 2W • 1M • 2M
-        </span>
-        <span style="padding: 0.35rem 0.75rem; border-radius: 6px; background: rgba(197,162,83,0.15); color: #E6CA83; border: 1px solid rgba(197,162,83,0.3);">
-          🎓 Verified Certificate
-        </span>
-      </div>
-
-      <!-- Action CTAs -->
-      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; padding-top: 0.75rem;">
-        <button type="button" class="dls-btn dls-btn-lg dls-btn-gold" onclick="openEnrollModalWithProgram('{{ $program.id }}')">
+      <!-- Action Buttons -->
+      <div class="doc-masthead-actions">
+        <button type="button" class="doc-btn doc-btn-gold" onclick="openEnrollModalWithProgram('{{ $program.id }}')">
           <span>Enroll in {{ $program.title }}</span>
-          <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+          <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
           </svg>
         </button>
 
-        <a href="#tracks" class="dls-btn dls-btn-lg dls-btn-secondary">
-          <span>Explore Modular Tracks</span>
-          <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+        <a href="#tracks" class="doc-btn doc-btn-outline">
+          <span>Compare Track Durations</span>
+          <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"></path>
           </svg>
         </a>
-      </div>
 
-      <!-- Prerequisites Notice -->
-      <div style="font-size: 0.75rem; font-family: var(--font-mono); color: #8E95A0; max-width: 36rem; margin: 0 auto;">
-        <span style="color: #E6CA83; font-weight: 700;">Prerequisites:</span> {{ $program.prerequisites }}
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 1: Key Learning Outcomes -->
-<section id="outcomes" class="dls-section bg-dark-primary" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-  <div class="container-dls">
-    <div style="text-align: center; max-width: 44rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
-      <div>
-        <span class="dls-badge dls-badge-silver">Target Competencies</span>
-      </div>
-      <h2 class="dls-section-title">What You Will Master</h2>
-      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
-        Every competency is evaluated through hands-on code and tangible deliverables rather than passive theory.
-      </p>
-    </div>
-
-    <!-- 4 Outcomes Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;">
-      {{ range $i, $outcome := $program.outcomes }}
-      <div class="dls-card-dark" style="display: flex; flex-direction: column; justify-content: space-between; padding: 1.75rem;">
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(197,162,83,0.12); color: #E6CA83; display: flex; align-items: center; justify-content: center; font-weight: 800; font-family: var(--font-mono);">
-              0{{ add $i 1 }}
-            </div>
-            <span style="color: #10B981; font-size: 1.1rem;">✓</span>
-          </div>
-          <p style="font-size: 0.9375rem; color: #FFFFFF; font-weight: 600; line-height: 1.55;">
-            {{ $outcome }}
-          </p>
-        </div>
-        <div style="padding-top: 1rem; margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; font-family: var(--font-mono); color: #8E95A0;">
-          Verified Outcome
-        </div>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
-<!-- Section 2: Modular Tracks & Detailed Syllabi (#tracks) -->
-<section id="tracks" class="dls-section" style="background: #14161A; border-bottom: 1px solid rgba(255,255,255,0.08);">
-  <div class="container-dls">
-    <div style="text-align: center; max-width: 48rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
-      <div>
-        <span class="dls-badge dls-badge-silver">Flexible Modular Structure</span>
-      </div>
-      <h2 class="dls-section-title">Choose Your Track Duration</h2>
-      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
-        Select from 1 Week, 2 Weeks, 1 Month, or 2 Months. Each duration delivers self-contained skills and earns a corresponding certificate.
-      </p>
-    </div>
-
-    <!-- Track Selector Tabs -->
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-bottom: 2.5rem;" id="trackTabList">
-      {{ range $i, $track := $program.tracks }}
-      <button type="button" class="track-tab-btn {{ if eq $i 0 }}active{{ end }}" onclick="selectTrackTab({{ $i }})" id="trackBtn{{ $i }}">
-        <span style="font-family: var(--font-mono); font-weight: 800; font-size: 0.95rem;">{{ $track.duration }}</span>
-        <span style="font-size: 0.75rem; opacity: 0.8;">• {{ $track.tierName }}</span>
-      </button>
-      {{ end }}
-    </div>
-
-    <!-- Track Panels Container -->
-    <div style="max-width: 54rem; margin: 0 auto;">
-      {{ range $i, $track := $program.tracks }}
-      <div class="track-panel" id="trackPanel{{ $i }}" style="{{ if ne $i 0 }}display: none;{{ end }}">
-        <div class="dls-card-dark" style="padding: 2.25rem; border: 1px solid rgba(197, 162, 83, 0.3); background: linear-gradient(180deg, #181A20 0%, #121316 100%); border-radius: 1.25rem;">
-          <!-- Track Header -->
-          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.08);">
-            <div>
-              <div style="font-size: 0.75rem; font-family: var(--font-mono); color: #E6CA83; text-transform: uppercase; font-weight: 700; margin-bottom: 0.25rem;">
-                {{ $track.tierName }} • {{ $track.days }} Working Days
-              </div>
-              <h3 style="font-size: 1.5rem; font-weight: 800; color: #FFFFFF; line-height: 1.2;">
-                {{ $program.title }} — {{ $track.duration }} Track
-              </h3>
-            </div>
-
-            <!-- Certificate Pill -->
-            <div style="padding: 0.5rem 0.85rem; border-radius: 8px; background: rgba(197,162,83,0.1); border: 1px solid rgba(197,162,83,0.25); display: flex; align-items: center; gap: 0.5rem;">
-              <span style="font-size: 1.1rem;">🎓</span>
-              <div style="text-align: left;">
-                <div style="font-size: 0.65rem; font-family: var(--font-mono); color: #8E95A0; text-transform: uppercase;">Certificate Earned:</div>
-                <div style="font-size: 0.8125rem; font-weight: 700; color: #E6CA83;">{{ $track.certificate }}</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Contact Hours Breakdown Row -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.75rem;">
-            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 0.85rem 1rem;">
-              <div style="font-size: 0.6875rem; font-family: var(--font-mono); color: #8E95A0; text-transform: uppercase;">Standard Pace (1.5h/day)</div>
-              <div style="font-size: 1.15rem; font-weight: 800; color: #E6CA83; font-family: var(--font-mono); margin-top: 0.2rem;">{{ $track.hours90 }} Total Contact</div>
-            </div>
-
-            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 0.85rem 1rem;">
-              <div style="font-size: 0.6875rem; font-family: var(--font-mono); color: #8E95A0; text-transform: uppercase;">Extended Pace (2.0h/day)</div>
-              <div style="font-size: 1.15rem; font-weight: 800; color: #10B981; font-family: var(--font-mono); margin-top: 0.2rem;">{{ $track.hours120 }} Total Contact</div>
-            </div>
-
-            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 0.85rem 1rem;">
-              <div style="font-size: 0.6875rem; font-family: var(--font-mono); color: #8E95A0; text-transform: uppercase;">Delivery Format</div>
-              <div style="font-size: 0.875rem; font-weight: 700; color: #FFFFFF; margin-top: 0.35rem;">Online • Live Labs &amp; Q&amp;A</div>
-            </div>
-          </div>
-
-          <!-- Track Summary -->
-          <p style="font-size: 0.9375rem; color: #D4D8DE; line-height: 1.6; margin-bottom: 1.5rem;">
-            {{ $track.summary }}
-          </p>
-
-          <!-- Milestone / Capstone Highlight -->
-          <div style="padding: 1rem 1.25rem; border-radius: 0.75rem; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); margin-bottom: 1.75rem;">
-            <div style="font-size: 0.6875rem; font-family: var(--font-mono); text-transform: uppercase; color: #10B981; font-weight: 700; margin-bottom: 0.3rem;">
-              ⚡ Assessed Project for this Track:
-            </div>
-            <div style="font-size: 0.9375rem; font-weight: 700; color: #FFFFFF;">
-              {{ $track.milestoneProject }}
-            </div>
-          </div>
-
-          <!-- Syllabus List -->
-          <div>
-            <h4 style="font-size: 0.95rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.85rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em;">
-              Track Curriculum &amp; Topic Progression:
-            </h4>
-            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-              {{ range $j, $item := $track.syllabus }}
-              <div style="display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem 1rem; border-radius: 6px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);">
-                <span style="width: 24px; height: 24px; border-radius: 6px; background: rgba(255,255,255,0.06); color: #E6CA83; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                  {{ add $j 1 }}
-                </span>
-                <span style="font-size: 0.875rem; color: #E2E8F0; line-height: 1.5;">
-                  {{ $item }}
-                </span>
-              </div>
-              {{ end }}
-            </div>
-          </div>
-
-          <!-- CTA inside track panel -->
-          <div style="padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-            <div style="font-size: 0.8125rem; color: #8E95A0; font-family: var(--font-mono);">
-              Includes live mentor instruction, code reviews &amp; {{ $track.certificate }}
-            </div>
-            <button type="button" class="dls-btn dls-btn-gold" onclick="openEnrollModalWithProgramAndTrack('{{ $program.id }}', '{{ $track.duration }}')">
-              <span>Enroll in {{ $track.duration }} Track</span>
-              <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
-<!-- Section 3: Practical Assignments & Capstone Projects -->
-<section id="assignments" class="dls-section bg-dark-primary" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-  <div class="container-dls">
-    <div style="text-align: center; max-width: 44rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
-      <div>
-        <span class="dls-badge dls-badge-silver">Portfolio Building</span>
-      </div>
-      <h2 class="dls-section-title">Hands-On Assignments &amp; Capstones</h2>
-      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
-        Every learner graduates with verified code artefacts. These are the mandatory projects evaluated for your certification.
-      </p>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 60rem; margin: 0 auto;">
-      {{ range $i, $assignment := $program.assignments }}
-      <div class="dls-card-dark" style="padding: 1.75rem; display: flex; flex-direction: column; justify-content: space-between;">
-        <div>
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <span class="dls-badge dls-badge-sm" style="background: rgba(197,162,83,0.12); color: #E6CA83;">
-              Deliverable 0{{ add $i 1 }}
-            </span>
-            <span style="font-size: 1.25rem;">🛠️</span>
-          </div>
-          <h4 style="font-size: 1.05rem; font-weight: 800; color: #FFFFFF; line-height: 1.35; margin-bottom: 0.5rem;">
-            {{ $assignment }}
-          </h4>
-        </div>
-        <div style="padding-top: 1rem; margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.75rem; font-family: var(--font-mono); color: #10B981;">
-          ✓ Submitted for Certification Grade
-        </div>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
-<!-- Section 4: Tools & Technologies -->
-<section id="tools" class="dls-section" style="background: #14161A; border-bottom: 1px solid rgba(255,255,255,0.08);">
-  <div class="container-dls">
-    <div style="text-align: center; max-width: 44rem; margin: 0 auto 3rem auto; display: flex; flex-direction: column; gap: 1rem;">
-      <div>
-        <span class="dls-badge dls-badge-silver">Industry Stack</span>
-      </div>
-      <h2 class="dls-section-title">Tools &amp; Technologies Mastered</h2>
-      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
-        Standard tooling used by modern engineering teams worldwide.
-      </p>
-    </div>
-
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; max-width: 52rem; margin: 0 auto;">
-      {{ range $program.tools }}
-      <div style="padding: 0.65rem 1.15rem; border-radius: 8px; background: #1C1F25; border: 1px solid rgba(255,255,255,0.08); font-size: 0.875rem; font-family: var(--font-mono); font-weight: 700; color: #E2E8F0; display: flex; align-items: center; gap: 0.5rem;">
-        <span style="color: #E6CA83;">⚡</span>
-        <span>{{ . }}</span>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
-<!-- Section 5: Assessment & Certification Standard -->
-<section id="assessment" class="dls-section bg-dark-primary" style="border-bottom: 1px solid rgba(255,255,255,0.08);">
-  <div class="container-dls">
-    <div style="text-align: center; max-width: 44rem; margin: 0 auto 3.5rem auto; display: flex; flex-direction: column; gap: 1rem;">
-      <div>
-        <span class="dls-badge dls-badge-silver">Grading Standard</span>
-      </div>
-      <h2 class="dls-section-title">Assessment &amp; Certification Breakdown</h2>
-      <p style="font-size: 1rem; color: #8E95A0; line-height: 1.6;">
-        Every certificate awarded by NextGen Scholars reflects verified technical ability.
-      </p>
-    </div>
-
-    <!-- Weightage Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; max-width: 58rem; margin: 0 auto 2.5rem auto;">
-      {{ range $framework.assessmentWeightage }}
-      <div class="dls-card-dark" style="padding: 1.25rem; text-align: center;">
-        <div style="font-size: 1.75rem; font-weight: 800; font-family: var(--font-mono); color: #E6CA83; margin-bottom: 0.25rem;">
-          {{ .weight }}
-        </div>
-        <div style="font-size: 0.875rem; font-weight: 700; color: #FFFFFF; margin-bottom: 0.25rem;">{{ .component }}</div>
-        <div style="font-size: 0.75rem; color: #8E95A0;">{{ .evidence }}</div>
-      </div>
-      {{ end }}
-    </div>
-
-    <!-- Passing Threshold Banner -->
-    <div style="max-width: 58rem; margin: 0 auto; padding: 1.25rem 1.5rem; border-radius: 10px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); text-align: center; font-size: 0.875rem; color: #A7F3D0;">
-      <strong style="color: #FFFFFF;">Passing Requirement:</strong> {{ $framework.passingStandard }}
-    </div>
-  </div>
-</section>
-
-<!-- Enrollment Call to Action -->
-<section style="position: relative; padding: 5rem 0; overflow: hidden; background: linear-gradient(180deg, #17191E 0%, #111214 100%);">
-  <div class="glow-gold" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 300px;"></div>
-
-  <div class="container-dls" style="position: relative; z-index: 2; text-align: center;">
-    <div style="max-width: 44rem; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem; align-items: center;">
-      <div class="dls-badge dls-badge-silver">
-        Enrollment Open • Limited Cohort Seats
-      </div>
-
-      <h2 class="dls-section-title" style="font-size: clamp(2rem, 3.5vw, 2.75rem);">
-        Ready to Enroll in <span class="text-metallic-gold">{{ $program.title }}</span>?
-      </h2>
-
-      <p style="font-size: 1rem; color: #C7C9CC; line-height: 1.6;">
-        Choose your modular duration (1 Week, 2 Weeks, 1 Month, or 2 Months) and learn under experienced industry practitioners.
-      </p>
-
-      <div style="padding-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-        <button type="button" class="dls-btn dls-btn-lg dls-btn-gold" onclick="openEnrollModalWithProgram('{{ $program.id }}')">
-          <span>Enroll in {{ $program.title }}</span>
-          <svg style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
-          </svg>
-        </button>
-
-        <a href="{{ "" | relURL }}#programs" class="dls-btn dls-btn-lg dls-btn-secondary">
-          <span>View All 4 Programs</span>
+        <a href="#curriculum" class="doc-btn doc-btn-outline">
+          <span>Detailed Syllabi</span>
         </a>
+
+        <button type="button" class="doc-btn doc-btn-outline" onclick="window.print()" title="Print or save as PDF">
+          <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24-6.425 2.1-9.829 5.28-9.829 3.18 0 5.52 3.404 5.28 9.829M6 18h12M6 14h12v7H6v-7z"></path>
+          </svg>
+          <span>Print / Save PDF</span>
+        </button>
       </div>
+    </header>
+
+    <!-- Document Layout: Sidebar TOC + Main Content -->
+    <div class="doc-layout">
+
+      <!-- Sticky Document Navigation Sidebar -->
+      <aside class="doc-sidebar">
+        <div class="doc-sidebar-header">
+          <span>Document Sections</span>
+          <span style="color: #E6CA83;">§ Index</span>
+        </div>
+        <nav>
+          <ul class="doc-nav-list">
+            <li>
+              <a href="#overview" class="doc-nav-link active">
+                <span class="doc-nav-num">01.</span>
+                <span>Overview &amp; Outcomes</span>
+              </a>
+            </li>
+            <li>
+              <a href="#tracks" class="doc-nav-link">
+                <span class="doc-nav-num">02.</span>
+                <span>Modular Track Matrix</span>
+              </a>
+            </li>
+            <li>
+              <a href="#curriculum" class="doc-nav-link">
+                <span class="doc-nav-num">03.</span>
+                <span>Detailed Syllabi</span>
+              </a>
+            </li>
+            <li>
+              <a href="#assignments" class="doc-nav-link">
+                <span class="doc-nav-num">04.</span>
+                <span>Assessed Projects</span>
+              </a>
+            </li>
+            <li>
+              <a href="#tools" class="doc-nav-link">
+                <span class="doc-nav-num">05.</span>
+                <span>Industry Tools</span>
+              </a>
+            </li>
+            <li>
+              <a href="#assessment" class="doc-nav-link">
+                <span class="doc-nav-num">06.</span>
+                <span>Assessment Standard</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="doc-sidebar-cta">
+          <div style="font-size: 0.75rem; color: #8E95A0; margin-bottom: 0.65rem; line-height: 1.4;">
+            Ready to join the next cohort?
+          </div>
+          <button type="button" class="doc-btn doc-btn-gold" style="width: 100%; justify-content: center;" onclick="openEnrollModalWithProgram('{{ $program.id }}')">
+            Apply for Admission
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Document Content Area -->
+      <article class="doc-main">
+
+        <!-- Section 1: Overview & Competencies -->
+        <section id="overview" class="doc-section">
+          <span id="outcomes" style="position: relative; top: -5rem; display: block; visibility: hidden;"></span>
+          <div class="doc-section-header">
+            <span class="doc-section-tag">Section 01 // Executive Brief</span>
+            <h2 class="doc-section-title">Program Overview &amp; Learning Outcomes</h2>
+            <p class="doc-section-intro">
+              This curriculum delivers rigorous, practitioner-guided technical training designed specifically for college students and recent graduates. Rather than passive conceptual lectures, every module combines concept explanation, live code demonstration, guided hands-on laboratory exercises, and peer code reviews.
+            </p>
+          </div>
+
+          <div class="doc-callout">
+            <div class="doc-callout-title">
+              <span>🎯</span>
+              <span>Target Educational Objectives:</span>
+            </div>
+            By the completion of this program, learners are independently capable of designing, building, testing, and demonstrating working software artefacts adhering to modern industry best practices.
+          </div>
+
+          <h3 style="font-size: 1.1rem; font-weight: 700; color: #FFFFFF; margin: 1.5rem 0 0.75rem 0;">
+            Core Evaluated Competencies:
+          </h3>
+
+          <div class="doc-outcomes-grid">
+            {{ range $i, $outcome := $program.outcomes }}
+            <div class="doc-outcome-item">
+              <span class="doc-outcome-num">0{{ add $i 1 }}</span>
+              <div class="doc-outcome-text">{{ $outcome }}</div>
+            </div>
+            {{ end }}
+          </div>
+        </section>
+
+        <!-- Section 2: Modular Track Pathways Comparison Table -->
+        <section id="tracks" class="doc-section">
+          <div class="doc-section-header">
+            <span class="doc-section-tag">Section 02 // Structural Matrix</span>
+            <h2 class="doc-section-title">Modular Track Pathways &amp; Comparison</h2>
+            <p class="doc-section-intro">
+              To accommodate different academic schedules and career goals, the curriculum is structured into four progressive durations. Each duration is fully self-contained, builds upon preceding units, and awards an industry-recognized certificate.
+            </p>
+          </div>
+
+          <!-- Structured Comparison Table -->
+          <div class="doc-table-container">
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>Track Duration</th>
+                  <th>Commitment</th>
+                  <th>Focus &amp; Scope</th>
+                  <th>Assessed Milestone</th>
+                  <th>Certificate Earned</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ range $program.tracks }}
+                <tr>
+                  <td>
+                    <div class="doc-table-highlight">{{ .duration }}</div>
+                    <div style="font-size: 0.75rem; color: #8E95A0; font-family: var(--font-mono);">{{ .tierName }}</div>
+                  </td>
+                  <td>
+                    <div style="font-weight: 600;">{{ .days }} Days</div>
+                    <div style="font-size: 0.75rem; color: #8E95A0; font-family: var(--font-mono);">{{ .hours90 }} (1.5h/d) • {{ .hours120 }} (2.0h/d)</div>
+                  </td>
+                  <td>
+                    <div style="font-size: 0.8125rem; max-width: 18rem;">{{ .summary }}</div>
+                  </td>
+                  <td>
+                    <div style="font-size: 0.8125rem; color: #E2E8F0; font-weight: 600;">{{ .milestoneProject }}</div>
+                  </td>
+                  <td>
+                    <span style="font-size: 0.75rem; color: #E6CA83; font-family: var(--font-mono); background: rgba(197, 162, 83, 0.1); padding: 0.2rem 0.45rem; border-radius: 4px; border: 1px solid rgba(197, 162, 83, 0.2);">
+                      🎓 {{ .certificate }}
+                    </span>
+                  </td>
+                  <td>
+                    <button type="button" class="doc-btn doc-btn-gold" style="padding: 0.35rem 0.75rem; font-size: 0.75rem;" onclick="openEnrollModalWithProgramAndTrack('{{ $program.id }}', '{{ .duration }}')">
+                      Enroll
+                    </button>
+                  </td>
+                </tr>
+                {{ end }}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-callout doc-callout-success">
+            <div class="doc-callout-title">
+              <span>⏱️</span>
+              <span>Daily Session Breakdown (90-Minute vs. 120-Minute Formats):</span>
+            </div>
+            Sessions follow a balanced split: <strong>30–35 min</strong> core concepts &amp; architecture, <strong>20–25 min</strong> live demonstration, <strong>30–45 min</strong> active student coding labs, and <strong>10–15 min</strong> live doubt-clearing and daily recap.
+          </div>
+        </section>
+
+        <!-- Section 3: Detailed Syllabi by Track -->
+        <section id="curriculum" class="doc-section">
+          <div class="doc-section-header">
+            <span class="doc-section-tag">Section 03 // Course Syllabus</span>
+            <h2 class="doc-section-title">Detailed Syllabi Across All Four Tracks</h2>
+            <p class="doc-section-intro">
+              Complete, transparent breakdown of the topics, practical tools, and milestone projects covered across each duration tier.
+            </p>
+          </div>
+
+          {{ range $i, $track := $program.tracks }}
+          <div class="doc-track-block" id="track-{{ lower (replace .duration " " "-") }}">
+            <div class="doc-track-header">
+              <div>
+                <span class="doc-code-badge" style="margin-bottom: 0.4rem;">Track 0{{ add $i 1 }} • {{ $track.tierName }}</span>
+                <h3 class="doc-track-title">{{ $track.duration }} Track — {{ $track.days }} Working Days</h3>
+                <div class="doc-track-meta">
+                  <span>Standard: {{ $track.hours90 }}</span>
+                  <span>•</span>
+                  <span>Extended Lab: {{ $track.hours120 }}</span>
+                  <span>•</span>
+                  <span style="color: #E6CA83;">Earns: {{ $track.certificate }}</span>
+                </div>
+              </div>
+
+              <button type="button" class="doc-btn doc-btn-gold" onclick="openEnrollModalWithProgramAndTrack('{{ $program.id }}', '{{ $track.duration }}')">
+                <span>Enroll in {{ $track.duration }}</span>
+                <svg style="width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                </svg>
+              </button>
+            </div>
+
+            <p class="doc-track-summary">{{ $track.summary }}</p>
+
+            <h4 style="font-size: 0.8125rem; font-family: var(--font-mono); text-transform: uppercase; color: #8E95A0; margin-bottom: 0.65rem; letter-spacing: 0.05em;">
+              Topic Progression &amp; Lab Modules:
+            </h4>
+
+            <ul class="doc-curriculum-list">
+              {{ range $j, $item := $track.syllabus }}
+              <li class="doc-curriculum-item">
+                <span class="doc-curriculum-num">{{ add $j 1 }}</span>
+                <span>{{ $item }}</span>
+              </li>
+              {{ end }}
+            </ul>
+
+            <div class="doc-milestone-box">
+              <div>
+                <div class="doc-milestone-label">Assessed Track Deliverable</div>
+                <div class="doc-milestone-name">{{ $track.milestoneProject }}</div>
+              </div>
+              <span style="font-size: 0.75rem; color: #10B981; font-family: var(--font-mono);">
+                ✓ Required for {{ $track.certificate }}
+              </span>
+            </div>
+          </div>
+          {{ end }}
+        </section>
+
+        <!-- Section 4: Assessed Projects & Capstones -->
+        <section id="assignments" class="doc-section">
+          <div class="doc-section-header">
+            <span class="doc-section-tag">Section 04 // Project Deliverables</span>
+            <h2 class="doc-section-title">Hands-On Projects &amp; Capstone Portfolio</h2>
+            <p class="doc-section-intro">
+              Each student completes a portfolio of tangible software deliverables verified by industry mentors. These projects serve as verified proof of ability during job applications.
+            </p>
+          </div>
+
+          <div class="doc-deliverables-grid">
+            {{ range $i, $assignment := $program.assignments }}
+            <div class="doc-deliverable-item">
+              <div>
+                <div class="doc-deliverable-header">
+                  <span class="doc-code-badge" style="font-size: 0.6875rem;">PRJ-0{{ add $i 1 }}</span>
+                  <span class="doc-deliverable-badge">
+                    <span>✓</span> Verified Code Artefact
+                  </span>
+                </div>
+                <h3 class="doc-deliverable-title">{{ $assignment }}</h3>
+              </div>
+              <div style="font-size: 0.75rem; color: #8E95A0; font-family: var(--font-mono); border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 0.65rem; margin-top: 0.5rem;">
+                Evaluated on code quality, testing, documentation &amp; live demo.
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </section>
+
+        <!-- Section 5: Tools & Technologies -->
+        <section id="tools" class="doc-section">
+          <div class="doc-section-header">
+            <span class="doc-section-tag">Section 05 // Tech Stack</span>
+            <h2 class="doc-section-title">Industry Tooling &amp; Technologies</h2>
+            <p class="doc-section-intro">
+              The technology stack taught in this program reflects the real-world toolchain adopted by leading software and engineering teams worldwide.
+            </p>
+          </div>
+
+          <div class="doc-tools-flex">
+            {{ range $program.tools }}
+            <span class="doc-tool-badge">{{ . }}</span>
+            {{ end }}
+          </div>
+        </section>
+
+        <!-- Section 6: Assessment & Certification Framework -->
+        <section id="assessment" class="doc-section">
+          <div class="doc-section-header">
+            <span class="doc-section-tag">Section 06 // Evaluation Standard</span>
+            <h2 class="doc-section-title">Assessment &amp; Certification Standard</h2>
+            <p class="doc-section-intro">
+              NextGen Scholars issues certificates based strictly on demonstrable technical competence rather than passive attendance.
+            </p>
+          </div>
+
+          <!-- Assessment Table -->
+          <div class="doc-table-container">
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>Evaluation Component</th>
+                  <th>Weightage</th>
+                  <th>Evidence &amp; Deliverables Required</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{ range $framework.assessmentWeightage }}
+                <tr>
+                  <td style="font-weight: 700;">{{ .component }}</td>
+                  <td>
+                    <span class="doc-table-highlight">{{ .weight }}</span>
+                  </td>
+                  <td style="color: #9CA3AF;">{{ .evidence }}</td>
+                </tr>
+                {{ end }}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="doc-callout doc-callout-success">
+            <div class="doc-callout-title">
+              <span>📜</span>
+              <span>Passing Standard:</span>
+            </div>
+            {{ $framework.passingStandard }}
+          </div>
+        </section>
+
+        <!-- Document Footer Call to Action -->
+        <section class="doc-section" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+          <div style="background: linear-gradient(180deg, #181A20 0%, #131418 100%); border: 1px solid rgba(197, 162, 83, 0.3); border-radius: 12px; padding: 2.25rem; text-align: center;">
+            <span class="doc-code-badge" style="margin-bottom: 0.75rem;">NextGen Scholars Admission</span>
+            <h3 style="font-size: 1.65rem; font-weight: 800; color: #FFFFFF; margin-bottom: 0.5rem;">
+              Ready to Master {{ $program.title }}?
+            </h3>
+            <p style="font-size: 0.9375rem; color: #9CA3AF; max-width: 38rem; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+              Select your modular track duration and start building verified engineering skills with live industry practitioner mentorship.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;">
+              <button type="button" class="doc-btn doc-btn-gold" style="padding: 0.75rem 1.75rem; font-size: 0.9375rem;" onclick="openEnrollModalWithProgram('{{ $program.id }}')">
+                <span>Enroll in {{ $program.title }}</span>
+                <svg style="width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5;" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                </svg>
+              </button>
+              <a href="{{ "" | relURL }}courses/" class="doc-btn doc-btn-outline" style="padding: 0.75rem 1.5rem; font-size: 0.9375rem;">
+                <span>View All 4 Technology Programs</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </article>
     </div>
   </div>
-</section>
+</div>
 
-<!-- Tabs Interactive Script & Styles -->
+<!-- ScrollSpy Script for Table of Contents -->
 <script>
-  function selectTrackTab(index) {
-    const panels = document.querySelectorAll('.track-panel');
-    panels.forEach((p, i) => {
-      p.style.display = (i === index) ? 'block' : 'none';
-    });
-    const btns = document.querySelectorAll('.track-tab-btn');
-    btns.forEach((b, i) => {
-      b.classList.toggle('active', i === index);
-    });
-  }
-</script>
+  (function() {
+    const navLinks = document.querySelectorAll('.doc-nav-link');
+    const sections = document.querySelectorAll('.doc-section');
+    if (!sections.length || !navLinks.length) return;
 
-<style>
-  .track-tab-btn {
-    padding: 0.65rem 1.25rem;
-    border-radius: 9999px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: #9CA3AF;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition: all 0.2s ease;
-  }
-  .track-tab-btn:hover {
-    background: rgba(255,255,255,0.08);
-    color: #FFFFFF;
-    border-color: rgba(255,255,255,0.2);
-  }
-  .track-tab-btn.active {
-    background: rgba(197, 162, 83, 0.15);
-    color: #E6CA83;
-    border-color: rgba(197, 162, 83, 0.4);
-    box-shadow: 0 0 16px rgba(197, 162, 83, 0.15);
-  }
-</style>
+    window.addEventListener('scroll', function() {
+      let currentId = '';
+      sections.forEach(function(sec) {
+        const top = sec.offsetTop - 140;
+        if (window.scrollY >= top) {
+          currentId = sec.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(function(link) {
+        const href = link.getAttribute('href').replace('#', '');
+        link.classList.toggle('active', href === currentId);
+      });
+    }, { passive: true });
+  })();
+</script>
 {{ end }}

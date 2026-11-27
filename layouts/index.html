@@ -1,7 +1,7 @@
 {{ define "main" }}
-{{ $home := index hugo.Data "home" }}
-{{ $framework := index hugo.Data "framework" }}
-{{ $programsData := index hugo.Data "programs" }}
+{{ $home := index site.Data "home" }}
+{{ $framework := index site.Data "framework" }}
+{{ $programsData := index site.Data "programs" }}
 
 <!-- Hero Section (Dark Obsidian DLS Canvas) -->
 <section style="position: relative; padding: 7.5rem 0 5.5rem 0; overflow: hidden; background: #111214;">
