@@ -1,0 +1,630 @@
+/* NextGen Scholars - Document-Centric Course Syllabus Stylesheet */
+
+/* Document Container & Layout */
+.course-doc-wrapper {
+  background-color: #111214;
+  color: #D4D8DE;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  padding: 2.5rem 0 6rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.doc-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.doc-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .doc-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Sticky Document Table of Contents Sidebar */
+.doc-sidebar {
+  position: sticky;
+  top: 5.5rem;
+  background: #16181D;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem 1rem;
+}
+
+@media (max-width: 1024px) {
+  .doc-sidebar {
+    position: relative;
+    top: 0;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.doc-sidebar-header {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8E95A0;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.doc-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+}
+
+.doc-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  color: #9CA3AF;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  line-height: 1.35;
+}
+
+.doc-nav-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+}
+
+.doc-nav-link.active {
+  background: rgba(197, 162, 83, 0.12);
+  color: #E6CA83;
+  font-weight: 600;
+}
+
+.doc-nav-num {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  opacity: 0.7;
+}
+
+.doc-sidebar-cta {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Document Header / Masthead */
+.doc-masthead {
+  background: linear-gradient(180deg, #181A20 0%, #131418 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 2.25rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.doc-masthead-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.doc-code-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #E6CA83;
+  background: rgba(197, 162, 83, 0.1);
+  border: 1px solid rgba(197, 162, 83, 0.25);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.doc-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #10B981;
+}
+
+.doc-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+}
+
+.doc-title {
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.doc-lead {
+  font-size: 1.0625rem;
+  color: #D1D5DB;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+  max-width: 52rem;
+}
+
+/* Document Specification Grid */
+.doc-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.75rem;
+}
+
+.doc-spec-item {
+  background: #16181D;
+  padding: 0.85rem 1rem;
+}
+
+.doc-spec-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  color: #8E95A0;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+
+.doc-spec-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #E2E8F0;
+  line-height: 1.4;
+}
+
+.doc-masthead-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Main Document Body */
+.doc-main {
+  min-width: 0;
+}
+
+.doc-section {
+  scroll-margin-top: 6.5rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.doc-section-header {
+  margin-bottom: 1.5rem;
+}
+
+.doc-section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #E6CA83;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.doc-section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+
+.doc-section-intro {
+  font-size: 0.9375rem;
+  color: #9CA3AF;
+  line-height: 1.6;
+}
+
+/* Document Tables */
+.doc-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: #14161B;
+  margin: 1.25rem 0;
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.doc-table th {
+  background: #1A1C22;
+  color: #D1D5DB;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+}
+
+.doc-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: #E2E8F0;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.doc-table tr:last-child td {
+  border-bottom: none;
+}
+
+.doc-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.doc-table-highlight {
+  color: #E6CA83;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+/* Document Callout Box */
+.doc-callout {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-left: 3px solid #E6CA83;
+  margin: 1.25rem 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #D1D5DB;
+}
+
+.doc-callout-success {
+  border-left-color: #10B981;
+  background: rgba(16, 185, 129, 0.06);
+}
+
+.doc-callout-title {
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Document Checklist / Outcomes Grid */
+.doc-outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.doc-outcome-item {
+  background: #16181D;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.doc-outcome-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #E6CA83;
+  background: rgba(197, 162, 83, 0.12);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.doc-outcome-text {
+  font-size: 0.875rem;
+  color: #E2E8F0;
+  line-height: 1.5;
+}
+
+/* Detailed Track Syllabus Units */
+.doc-track-block {
+  background: #16181D;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.doc-track-block:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.doc-track-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.doc-track-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.3;
+}
+
+.doc-track-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #8E95A0;
+}
+
+.doc-track-summary {
+  font-size: 0.9375rem;
+  color: #D1D5DB;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+/* Structured Curriculum List */
+.doc-curriculum-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.doc-curriculum-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.875rem;
+  color: #E2E8F0;
+  line-height: 1.5;
+}
+
+.doc-curriculum-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #E6CA83;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Assessed Project Ribbon inside Track */
+.doc-milestone-box {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.doc-milestone-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #10B981;
+}
+
+.doc-milestone-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-top: 0.15rem;
+}
+
+/* Deliverables Grid */
+.doc-deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.doc-deliverable-item {
+  background: #16181D;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.doc-deliverable-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.doc-deliverable-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.doc-deliverable-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: #10B981;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Tools Monospace Inventory */
+.doc-tools-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+
+.doc-tool-badge {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  background: #1A1C22;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #E2E8F0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.doc-tool-badge::before {
+  content: "•";
+  color: #E6CA83;
+}
+
+/* Quick Action Buttons */
+.doc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.doc-btn-gold {
+  background: #E6CA83;
+  color: #111214;
+}
+
+.doc-btn-gold:hover {
+  background: #F0D999;
+}
+
+.doc-btn-outline {
+  background: transparent;
+  color: #D1D5DB;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.doc-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+}
+
+/* Print Stylesheet for true Document Concept */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #111827 !important;
+  }
+  .dls-header, .dls-footer, .doc-sidebar, .doc-masthead-actions, .modal-overlay, #courseMobileMenu {
+    display: none !important;
+  }
+  .course-doc-wrapper {
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  .doc-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .doc-masthead, .doc-track-block, .doc-outcome-item, .doc-deliverable-item {
+    background: #FFFFFF !important;
+    border: 1px solid #E5E7EB !important;
+    color: #111827 !important;
+    break-inside: avoid;
+  }
+  .doc-title, .doc-section-title, .doc-track-title {
+    color: #000000 !important;
+  }
+  .doc-lead, .doc-section-intro, .doc-track-summary, .doc-outcome-text {
+    color: #374151 !important;
+  }
+  .doc-table {
+    border: 1px solid #E5E7EB !important;
+  }
+  .doc-table th {
+    background: #F3F4F6 !important;
+    color: #111827 !important;
+  }
+  .doc-table td {
+    color: #1F2937 !important;
+    border-bottom: 1px solid #E5E7EB !important;
+  }
+}
